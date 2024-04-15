@@ -13,7 +13,7 @@ public class MonsterShoot : MonoBehaviour
     LineRenderer lR;
     //GameObject bulletPref;
 
-    [SerializeField] float moveSpeed = 1.5f;
+    //[SerializeField] float moveSpeed = 1.5f;
     [SerializeField] float detectRange = 20.0f;
     [SerializeField] float atkTime = 3.0f;
     [SerializeField] float size = 0.5f;

@@ -8,11 +8,17 @@ using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] float aimRad;
-    [SerializeField]float sliderValue;
+    float aimRad;
+    float sliderValue;
     bool isFull = true;
+
+    [SerializeField] int recoverMax = 4;
+    public int GetRecoverMax() {  return recoverMax; }
+    public string difficulty = "";
+
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         Application.targetFrameRate = 60;
     }
 
@@ -71,4 +77,8 @@ public class GameManager : Singleton<GameManager>
         Application.Quit();
     }
 
+    public void SetDifficultyEasy() { difficulty = "easy"; GameStart(); }
+    public void SetDifficultyNormal() { difficulty = "normal"; recoverMax = 4; GameStart(); }
+    public void SetDifficultyBeteran() { difficulty = "beteran"; recoverMax = 2; GameStart(); }
+    public void SetDifficultyLegend() { difficulty = "legend"; GameStart(); }
 }

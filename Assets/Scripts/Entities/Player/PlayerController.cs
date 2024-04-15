@@ -177,19 +177,29 @@ public class PlayerController : MonoBehaviour
     }
     public void OnDamaged()
     {
-        if (CurHpCount == 1)
+        if (CurHpCount == 1 || GameManager.Instance.difficulty=="legend")
         {
             SetState(DeadState.Instance);
             return;
         }
+        
         SetState(AirState.Instance);
         rb.velocity = Vector2.zero;
+        if (GameManager.Instance.difficulty != "easy")
+        {
+            CurHpCount--;
+            hp.OnDamaged();
+        }
         anim.Play("SNB_Damaged");
         Vector2 dir = new Vector2(-1, 1);
-        CurHpCount--;
-        hp.OnDamaged();
         rb.AddForce(dir * damagedDash * Time.deltaTime, ForceMode2D.Impulse);
     }
+
+    public void Recover()
+    {
+        CurHpCount++;
+    }
+
     //public void OnDead()
     //{
     //    Time.timeScale = 0;
