@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 {
 
     #region Vars
+    public static float AimRad;
+
     protected Rigidbody2D rb;
     protected Animator anim;
     protected SpriteRenderer sR;
