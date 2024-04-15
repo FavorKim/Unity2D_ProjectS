@@ -39,7 +39,8 @@ public class PlayerController : MonoBehaviour
     [Header("About Move")]
     [SerializeField] protected float moveForce = 45.0f;
     [SerializeField] protected float jumpForce = 900.0f;
-    [SerializeField] protected float MaxSpeed = 9.0f;
+    [SerializeField] public float MaxSpeed = 9.0f;
+    [SerializeField] public float targetMaxSpeed = 9.0f;
     [SerializeField] protected float climbSpeed = 10.0f;
     [SerializeField] protected float skyClimbSpeed = 10.0f;
     [SerializeField] protected float targetGravity = 4.0f;
@@ -113,8 +114,6 @@ public class PlayerController : MonoBehaviour
     {
         SetAnim();
     }
-
-
 
     void SetAnim()
     {
@@ -221,7 +220,6 @@ public class PlayerController : MonoBehaviour
         protected static PlayerController player;
         protected float moveForce => player.moveForce;
         protected float jumpForce => player.jumpForce;
-        protected float MaxSpeed => player.MaxSpeed;
         protected float swingForce => player.swingForce;
         protected float dashCoolDown => player.swingCooldown;
         protected float curDashCool => player.swingDashCool;
@@ -256,10 +254,11 @@ public class PlayerController : MonoBehaviour
         {
             if (player.isFreeze == true) return;
             rb.AddForce(moveVal * moveForce * Time.deltaTime, ForceMode2D.Impulse);
-            if (rb.velocity.x > MaxSpeed)
-                rb.velocity = new Vector2(MaxSpeed, rb.velocity.y);
-            if (rb.velocity.x < MaxSpeed * -1)
-                rb.velocity = new Vector2(MaxSpeed * -1, rb.velocity.y);
+
+            if (rb.velocity.x > player.MaxSpeed)
+                rb.velocity = new Vector2(player.MaxSpeed, rb.velocity.y);
+            if (rb.velocity.x < player.MaxSpeed * -1)
+                rb.velocity = new Vector2(player.MaxSpeed * -1, rb.velocity.y);
         }
         public virtual void Jump()
         {
@@ -388,20 +387,31 @@ public class PlayerController : MonoBehaviour
         }
         public override void Move()
         {
-            rb.AddForce(moveVal * moveForce * 0.4f * Time.deltaTime, ForceMode2D.Impulse);
+            Vector2 newPos = ancPos.position - player.transform.position;
+            float rotZ = Mathf.Atan2(newPos.y, newPos.x) * Mathf.Rad2Deg;
+
+            player.transform.rotation = Quaternion.Euler(0, 0, rotZ - 90f);
+
+            rb.AddForce(player.transform.TransformDirection(moveVal) * moveForce * 0.4f * Time.deltaTime, ForceMode2D.Impulse);
 
         }
         public override void Skill()
         {
             if (player.CanDash())
             {
+                rb.gravityScale = 0f;
                 isSkilled = true;
                 player.swingDashCool = 0.0f;
-                rb.velocity = Vector2.zero;
+                Vector2 dir;
+                if (Input.GetKey(KeyCode.A)) dir = player.transform.TransformDirection(Vector2.left);
+                else if (Input.GetKey(KeyCode.D)) dir = player.transform.TransformDirection(Vector2.right);
+                else dir = Vector2.zero;
                 Vector2 reverse = (ancPos.position - player.transform.position).normalized * -9.8f;
-                Vector2 dashdir = new Vector2(moveVal.x, 0).normalized;
-                Vector2 finalDir = dashdir + reverse;
+                Vector2 finalDir = dir + reverse;
+                rb.velocity = Vector2.zero;
                 rb.AddForce(finalDir * swingForce, ForceMode2D.Impulse);
+                rb.gravityScale = targetGravity;
+
             }
         }
         public override void Jump()
@@ -414,7 +424,7 @@ public class PlayerController : MonoBehaviour
         }
         public override void Enter()
         {
-            rb.velocity = new Vector2(0, 0);
+            player.MaxSpeed += 3.0f;
             player.GetArm().SetBool("isAttach", true);
             anim.SetTrigger("WireShoot");
             anchor.GetJoint().enabled = true;
@@ -423,6 +433,7 @@ public class PlayerController : MonoBehaviour
         }
         public override void Exit()
         {
+            
             if (isSkilled)
             {
                 anim.Play("SNB_Rolling", 0, 1f);
@@ -433,6 +444,7 @@ public class PlayerController : MonoBehaviour
             hookLine.enabled = false;
             aimLine.enabled = true;
             isSkilled = false;
+            player.transform.rotation = Quaternion.identity;
         }
 
 
@@ -533,9 +545,14 @@ public class PlayerController : MonoBehaviour
         public override void Move()
         {
             base.Move();
+
         }
         public override void Jump() { base.Jump(); }
         public override void Skill() { base.Skill(); }
+        public override void Enter()
+        {
+            player.MaxSpeed = player.targetMaxSpeed;
+        }
     }
     public class ClimbState : PlayerState
     {
@@ -596,6 +613,7 @@ public class PlayerController : MonoBehaviour
         //public override void Skill() { base.Skill(); }
         public override void Enter()
         {
+            player.MaxSpeed = player.targetMaxSpeed;
             anim.Play("SNB_ClimbStart");
             anim.SetBool("Climbing", true);
 
@@ -801,6 +819,10 @@ public class PlayerController : MonoBehaviour
 
         if (collision.CompareTag("DeadZone"))
             anim.Play("SNB_Dead");
+
+        if (collision.CompareTag("Finish"))
+            isFreeze = true;
+        
     }
 }
 
