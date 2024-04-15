@@ -16,6 +16,8 @@ public class GameManager : Singleton<GameManager>
         Application.targetFrameRate = 60;
     }
 
+
+
     public void SetAimRad(Slider select)
     {
         sliderValue = select.value;

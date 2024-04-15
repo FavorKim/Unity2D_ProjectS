@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MySceneManager : Singleton<MySceneManager>
 {
     [SerializeField] CanvasGroup fadeImg;
-    [SerializeField] float m_fadeSpeed = 2f;
+    float m_fadeSpeed;
     string m_sceneName;
 
     public bool IsComplete() { return !fadeImg.blocksRaycasts; }
@@ -43,7 +43,7 @@ public class MySceneManager : Singleton<MySceneManager>
     {
         while (fadeImg.alpha > 0)
         {
-            fadeImg.alpha -= Time.deltaTime * m_fadeSpeed;
+            fadeImg.alpha -= Time.deltaTime / m_fadeSpeed;
             yield return null;
         }
         fadeImg.blocksRaycasts = false;
@@ -54,7 +54,7 @@ public class MySceneManager : Singleton<MySceneManager>
     {
         while (fadeImg.alpha < 1)
         {
-            fadeImg.alpha += Time.deltaTime * m_fadeSpeed;
+            fadeImg.alpha += Time.deltaTime / m_fadeSpeed;
             yield return null;
         }
 
