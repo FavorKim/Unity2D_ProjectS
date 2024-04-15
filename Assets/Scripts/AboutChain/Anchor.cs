@@ -14,8 +14,12 @@ public class Anchor : MonoBehaviour
     [SerializeField] private PlayerController pC;
     [SerializeField] private LayerMask maskLayer;
     [SerializeField] Animator ancAnim;
+    [SerializeField] static float initialAimRad = 0.5f;
     SpriteRenderer sR;
     public GameObject PointPrefs;
+
+    public static CircleCollider2D anc;
+    public static float GetInitRad() { return initialAimRad; }
 
     DistanceJoint2D joint;
     public DistanceJoint2D GetJoint() { return joint; }
@@ -39,6 +43,8 @@ public class Anchor : MonoBehaviour
         ancAnim = point.gameObject.GetComponent<Animator>();
         sR = point.gameObject.GetComponent<SpriteRenderer>();
         sR.enabled = false;
+        anc = GetComponent<CircleCollider2D>();
+        GameManager.Instance.SetAim();
         StartCoroutine(HangTime());
     }
 
