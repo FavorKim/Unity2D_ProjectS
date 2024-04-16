@@ -1177,7 +1177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &940386145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,7 +1240,7 @@ SpriteRenderer:
   m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &940386147
@@ -1483,7 +1483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128458589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -95.9, y: -26, z: -15}
+  m_LocalPosition: {x: -58.6, y: -23.55, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1636,6 +1636,7 @@ GameObject:
   - component: {fileID: 1183788632}
   - component: {fileID: 1183788634}
   - component: {fileID: 1183788633}
+  - component: {fileID: 1183788635}
   m_Layer: 5
   m_Name: QTE_Btn
   m_TagString: Untagged
@@ -1701,6 +1702,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183788631}
   m_CullTransparentMesh: 1
+--- !u!95 &1183788635
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183788631}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47ef8803514355647860dee30f0956b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1239250599
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,8 +2484,8 @@ RectTransform:
   m_GameObject: {fileID: 1559144227}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 921256514}
   m_Father: {fileID: 1713530050}
@@ -2471,7 +2493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -51, y: 99}
+  m_AnchoredPosition: {x: -7, y: 249}
   m_SizeDelta: {x: -1820, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1559144229
@@ -2947,7 +2969,7 @@ MonoBehaviour:
   - {fileID: 1279382315}
   - {fileID: 591094929}
   - {fileID: 2037972802}
-  wave: 10
+  wave: 7
   wallAnim:
   - {fileID: 0}
   - {fileID: 0}
@@ -2956,10 +2978,12 @@ MonoBehaviour:
   - {fileID: 0}
   maxQTETime: 5
   valuePerClick: 15
+  secPerHold: 1
   secToZero: 2
   gauge: {fileID: 1559144229}
   QTEUI: {fileID: 1713530046}
   player: {fileID: 2133943340}
+  QTEanim: {fileID: 1183788635}
 --- !u!61 &2016807977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3299,7 +3323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133943339}
   m_LocalRotation: {x: -0, y: -0, z: 0.00695538, w: 0.9999758}
-  m_LocalPosition: {x: -95.9, y: -26, z: 0}
+  m_LocalPosition: {x: -58.6, y: -23.55, z: 0}
   m_LocalScale: {x: 0.63761, y: 0.63761, z: 0.63761}
   m_ConstrainProportionsScale: 0
   m_Children:

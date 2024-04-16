@@ -11,12 +11,14 @@ public class BossManager : BattleManager
     float curQTETime;
     [SerializeField] float maxQTETime = 5;
     [SerializeField] float valuePerClick = 15;
+    [SerializeField] float secPerHold = 1.5f;
     [SerializeField] float secToZero = 2;
 
     [SerializeField] Image gauge;
     [SerializeField] GameObject QTEUI;
     [SerializeField] PlayerController player;
     KangSeonController KS;
+    [SerializeField] Animator QTEanim;
 
     protected override void Start()
     {
@@ -43,7 +45,17 @@ public class BossManager : BattleManager
         curQTETime = 0;
         gauge.fillAmount = 0;
         QTEUI.SetActive(true);
-        StartCoroutine(CorQTE());
+        if (wave > 3)
+        {
+            QTEanim.Play("QTE_Click");
+            StartCoroutine(CorQTEClick());
+        }
+        else
+        {
+            QTEanim.Play("QTE_Hold");
+            StartCoroutine(CorQTEHold());
+        }
+
     }
 
     void EndQTE()
@@ -51,16 +63,22 @@ public class BossManager : BattleManager
         curQTETime = 0;
         QTEUI.SetActive(false);
         if (gauge.fillAmount >= 1)
+        {
+            player.GetAnimator().SetTrigger("ClashEnd");
             KS.GetAnimator().SetTrigger("QTEWon");
+        }
         else
         {
             KS.GetAnimator().Play("KangSeon_Disappear");
             player.SetState(PlayerController.NormalState.Instance);
         }
-        StopCoroutine(CorQTE());
+        if (wave > 3)
+            StopCoroutine(CorQTEClick());
+        else
+            StopCoroutine(CorQTEHold());
     }
 
-    IEnumerator CorQTE()
+    IEnumerator CorQTEClick()
     {
         while (true)
         {
@@ -76,6 +94,27 @@ public class BossManager : BattleManager
             if(Input.GetMouseButtonDown(0))
             {
                 gauge.fillAmount += valuePerClick / 100;
+            }
+        }
+        EndQTE();
+    }
+
+    IEnumerator CorQTEHold()
+    {
+        while (true)
+        {
+            yield return null;
+
+            if (gauge.fillAmount >= 1 || curQTETime > maxQTETime)
+                break;
+
+            curQTETime += Time.deltaTime;
+
+            gauge.fillAmount -= Time.deltaTime / secToZero;
+
+            if (Input.GetMouseButton(0))
+            {
+                gauge.fillAmount += Time.deltaTime * secPerHold;
             }
         }
         EndQTE();

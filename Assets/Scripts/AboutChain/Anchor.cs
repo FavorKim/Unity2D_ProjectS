@@ -92,6 +92,7 @@ public class Anchor : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                if (pC.GetState() == QTEState.Instance) return;
                 joint.autoConfigureDistance = false;
                 curDist = Vector2.Distance(transform.position, player.position)-1f;
                 if (curDist > maxDist)

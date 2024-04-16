@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
     public int GetCurHp { get { return CurHpCount; } }
 
     float curSize;
-    public bool isFreeze{ get; set; }
+    public bool isFreeze { get; set; }
 
     bool isInvincible = false;
     #endregion
@@ -144,11 +144,13 @@ public class PlayerController : MonoBehaviour
 
         if (moveVal.x < 0)
         {
+            if (GetState() == BossAttackState.Instance || GetState() == QTEState.Instance) return;
             armSr.flipX = true;
             sR.flipX = true;
         }
         if (moveVal.x > 0)
         {
+            if (GetState() == BossAttackState.Instance || GetState() == QTEState.Instance) return;
             armSr.flipX = false;
             sR.flipX = false;
         }
@@ -180,7 +182,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnDamaged()
     {
-        if (CurHpCount == 1 || GameManager.Instance.difficulty=="legend")
+        if (CurHpCount == 1 || GameManager.Instance.difficulty == "legend")
         {
             OnDead();
             return;
@@ -289,7 +291,8 @@ public class PlayerController : MonoBehaviour
                 player.JumpCount++;
             }
         }
-        public virtual void Skill() {
+        public virtual void Skill()
+        {
             if (player.isFreeze == true) return;
         }
 
@@ -339,10 +342,10 @@ public class PlayerController : MonoBehaviour
             KS.GetLaser().SetLaserOff();
             KS.GetLaser().GetLaser().SetActive(false);
 
-            if (bM.GetWave() % 3 ==0)
+            if (bM.GetWave() % 3 == 0 && bM.GetWave() != 0)
             {
                 isQTE = true;
-                player.transform.position = new Vector2(KS.gameObject.transform.position.x + 2f, KS.gameObject.transform.position.y);
+                player.transform.position = new Vector2(KS.gameObject.transform.position.x, KS.gameObject.transform.position.y);
                 cam.m_Lens.OrthographicSize = 9f;
                 player.SetState(QTEState.Instance);
                 KS.EnterQTE();
@@ -367,11 +370,11 @@ public class PlayerController : MonoBehaviour
                 //player.transform = new Vector2()
                 player.GetSR().flipX = false;
 
-                player.transform.position = new Vector2(KS.gameObject.transform.position.x +2f, KS.gameObject.transform.position.y);
+                player.transform.position = new Vector2(KS.gameObject.transform.position.x + 2f, KS.gameObject.transform.position.y);
 
                 player.GetAnimator().Play("SNB_KS_Excute");
                 KS.GetAnimator().Play("KangSeon_Excute");
-                
+
             }
         }
 
@@ -420,6 +423,8 @@ public class PlayerController : MonoBehaviour
         public override void Enter()
         {
             player.anim.Play("SNB_Clash_Start");
+            player.GetSR().flipX = true;
+            
             bM.EnterQTE();
         }
         public override void Exit()
@@ -428,7 +433,7 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = targetGravity;
             cam.m_Lens.OrthographicSize = player.curSize;
             anim.SetBool("Boss", false);
-            anim.SetTrigger("ClashEnd");
+            //anim.SetTrigger("ClashEnd");
             armSr.enabled = true;
             hookLine.enabled = false;
             aimLine.enabled = true;
@@ -511,7 +516,7 @@ QTE GaugeUI는 일정 간격의 칸으로 구성된 원형 게이지로, 클릭할 때 마다 한 칸씩 올
         }
         public override void Exit()
         {
-            
+
             if (isSkilled)
             {
                 anim.Play("SNB_Rolling", 0, 1f);
@@ -542,7 +547,7 @@ QTE GaugeUI는 일정 간격의 칸으로 구성된 원형 게이지로, 클릭할 때 마다 한 칸씩 올
         }
         MonsterShoot mon;
 
-        
+
 
         public override void Enter()
         {
@@ -874,7 +879,7 @@ QTE GaugeUI는 일정 간격의 칸으로 구성된 원형 게이지로, 클릭할 때 마다 한 칸씩 올
         {
             MySceneManager.Instance.ChangeScene(SceneManager.GetActiveScene().name, 1f);
         }
-            
+
     }
 }
 
