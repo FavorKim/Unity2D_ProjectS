@@ -12,7 +12,7 @@ public class Elevator : MonoBehaviour
 
     void OnBoard()
     {
-        MySceneManager.Instance.ChangeScene("KangSeon", 3f);
+        MySceneManager.Instance.ChangeScene("KangSeon", 0.5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

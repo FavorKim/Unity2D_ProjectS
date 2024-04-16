@@ -22,4 +22,9 @@ public class MySlider : MonoBehaviour
         tMP.text = slider.value.ToString("0") + "%";
     }
 
+    public void OnChangeValue()
+    {
+        GameManager.Instance.SetAimRad(slider);
+    }
+
 }

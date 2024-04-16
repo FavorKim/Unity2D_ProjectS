@@ -17,8 +17,8 @@ public class MySceneManager : Singleton<MySceneManager>
 
     private void Start()
     {
-        SceneManager.sceneLoaded += OnComplete;
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnComplete;
     }
 
     public void ChangeScene(string sceneName, float fadeSpeed)

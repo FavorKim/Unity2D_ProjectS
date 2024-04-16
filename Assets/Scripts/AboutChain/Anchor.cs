@@ -93,7 +93,7 @@ public class Anchor : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 joint.autoConfigureDistance = false;
-                curDist = Vector2.Distance(transform.position, player.position);
+                curDist = Vector2.Distance(transform.position, player.position)-1f;
                 if (curDist > maxDist)
                     curDist = maxDist;
 

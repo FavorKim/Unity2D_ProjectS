@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: a2732427196204641ba55a3d7e1abdc4
+  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 52b40819b1fba9345a89343943ec0cf6
   - enabled: 1
     path: Assets/Scenes/KangSeon.unity
     guid: 72be5d632a7e07a4bb367494841590f5
+  - enabled: 1
+    path: Assets/Scenes/Dead.unity
+    guid: e079ad51b209246428392032f6b323eb
   m_configObjects: {}

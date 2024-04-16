@@ -11,7 +11,7 @@ public class HPManager : MonoBehaviour
 
     public static float GetMaxRecoverTime() { return MaxRecoverTime; }
 
-    private void OnEnable()
+    private void Start()
     {
         if (GameManager.Instance.difficulty == "easy" || GameManager.Instance.difficulty == "legend")
             Destroy(gameObject);

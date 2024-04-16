@@ -4,16 +4,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class VFXManager : MonoBehaviour
+public class VFXManager : Singleton<VFXManager>
 {
-    private static VFXManager instance;
-    public static VFXManager Instance
-    {
-        get
-        {
-            return instance;
-        }
-    }
+    
 
     [SerializeField] PlayerController player;
     [SerializeField] private Transform[] VFXPos;
@@ -33,8 +26,11 @@ public class VFXManager : MonoBehaviour
 
    
 
-    private void Awake()
+
+    private void Start()
     {
+        //if (Instance != null) Destroy(gameObject);
+
         pointPref = Instantiate(pointPref);
         anim = pointPref.GetComponent<Animator>();
         VFXPosDict = new Dictionary<string, Transform>();
@@ -42,22 +38,7 @@ public class VFXManager : MonoBehaviour
         VFXPosDict.Add("VFX_WallJump", VFXPos[1]);
         VFXPosDict.Add("VFX_WallSlide", VFXPos[2]);
         VFXPosDict.Add("VFX_Land", VFXPos[3]);
-
-        
     }
-    private void Start()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
 
 
     public Vector2 GetPos(string name)

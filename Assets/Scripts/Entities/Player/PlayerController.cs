@@ -6,6 +6,7 @@ using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -83,6 +84,8 @@ public class PlayerController : MonoBehaviour
 
     float curSize;
     public bool isFreeze{ get; set; }
+
+    bool isInvincible = false;
     #endregion
 
     public void StateStaying(PlayerState state) { this.state = state; }
@@ -179,10 +182,10 @@ public class PlayerController : MonoBehaviour
     {
         if (CurHpCount == 1 || GameManager.Instance.difficulty=="legend")
         {
-            SetState(DeadState.Instance);
+            OnDead();
             return;
         }
-        
+        StartCoroutine(InvincibleTime());
         SetState(AirState.Instance);
         rb.velocity = Vector2.zero;
         if (GameManager.Instance.difficulty != "easy")
@@ -190,7 +193,6 @@ public class PlayerController : MonoBehaviour
             CurHpCount--;
             hp.OnDamaged();
         }
-        anim.Play("SNB_Damaged");
         Vector2 dir = new Vector2(-1, 1);
         rb.AddForce(dir * damagedDash * Time.deltaTime, ForceMode2D.Impulse);
     }
@@ -200,14 +202,11 @@ public class PlayerController : MonoBehaviour
         CurHpCount++;
     }
 
-    //public void OnDead()
-    //{
-    //    Time.timeScale = 0;
-    //    rb.velocity = Vector2.zero;
-
-    //    armSr.enabled = false;
-    //    cam.m_Lens.OrthographicSize = 5.0f;
-    //}
+    public void OnDead()
+    {
+        GameManager.Instance.deadScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("Dead");
+    }
 
 
 
@@ -223,6 +222,14 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(swingCooldown);
             swingDashCool = swingCooldown;
         }
+    }
+
+    private IEnumerator InvincibleTime()
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(2f);
+        isInvincible = false;
+        StopCoroutine(InvincibleTime());
     }
 
     public class PlayerState : IPlayerState
@@ -634,7 +641,7 @@ public class PlayerController : MonoBehaviour
         }
         public override void Exit()
         {
-            rb.AddForce(Vector2.up * 3, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * 8, ForceMode2D.Impulse);
             rb.gravityScale = targetGravity;
             anim.SetBool("Climbing", false);
             anim.SetBool("isAttach", false);
@@ -776,36 +783,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public class DeadState : PlayerState
-    {
-        public DeadState(PlayerController player) : base(player) { }
-        private static DeadState instance;
-        public static DeadState Instance
-        {
-            get
-            {
-                if (instance == null)
-                    instance = new DeadState(player);
-                return instance;
-            }
-        }
-
-
-        public override void Enter()
-        {
-            rb.gravityScale = 0f;
-            rb.velocity = Vector2.zero;
-            col.enabled = false;
-            cam.m_Lens.OrthographicSize = 5f;
-            anim.Play("SNB_Dead");
-        }
-
-
-
-        public override void Move() { }
-        public override void Jump() { }
-        public override void Skill() { }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -821,19 +798,23 @@ public class PlayerController : MonoBehaviour
             VFXManager.Instance.PlayVFX(collision.transform.position, "VFX_ExcuteEnd");
         }
 
-        if (collision.CompareTag("Bullet") && !IsSpinning)
+        if (!isInvincible)
         {
-            anim.Play("SNB_Damaged");
+            if (collision.CompareTag("Bullet") && !IsSpinning)
+            {
+                anim.Play("SNB_Damaged");
+            }
+            if (collision.CompareTag("DamageTile"))
+                anim.Play("SNB_Damaged");
+            if (collision.CompareTag("Finish"))
+                isFreeze = true;
         }
-        if (collision.CompareTag("DamageTile"))
-            anim.Play("SNB_Damaged");
 
         if (collision.CompareTag("DeadZone"))
-            anim.Play("SNB_Dead");
-
-        if (collision.CompareTag("Finish"))
-            isFreeze = true;
-        
+        {
+            MySceneManager.Instance.ChangeScene(SceneManager.GetActiveScene().name, 1f);
+        }
+            
     }
 }
 
