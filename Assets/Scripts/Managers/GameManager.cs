@@ -49,7 +49,7 @@ public class GameManager : Singleton<GameManager>
         {
             if (menu.activeSelf)
                 menu.SetActive(false);
-            else if (SceneManager.GetActiveScene().name != "MainScene" || SceneManager.GetActiveScene().name != "Dead")
+            else if (SceneManager.GetActiveScene().name != "MainScene" && SceneManager.GetActiveScene().name != "Dead")
                 OpenMenu();
         }
     }
