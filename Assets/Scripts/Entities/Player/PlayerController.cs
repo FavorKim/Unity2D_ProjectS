@@ -336,6 +336,7 @@ public class PlayerController : MonoBehaviour
             KS = player.enemy.GetComponent<KangSeonController>();
             KS.GetLaser().SetLaserOff();
             KS.GetLaser().GetLaser().SetActive(false);
+            
 
             player.GetAnimator().SetBool("Boss", true);
 

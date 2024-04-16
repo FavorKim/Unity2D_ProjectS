@@ -23,6 +23,7 @@ public class KangSeonLaser : MonoBehaviour
         playerlayer = 1 << 8;
         laser = Instantiate(Resources.Load<GameObject>("Pivot"));
         laser.transform.parent = gameObject.transform;
+        
     }
 
     private void OnEnable()
