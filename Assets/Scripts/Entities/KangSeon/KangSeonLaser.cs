@@ -41,6 +41,7 @@ public class KangSeonLaser : MonoBehaviour
     public void Ready()
     {
         lR.enabled = true;
+        isShoot = true;
     }
 
     public void Shoot()
