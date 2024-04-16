@@ -1,0 +1,1465 @@
+fileFormatVersion: 2
+guid: b3430c200ad72114188d9f2c0272c18c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 1868
+        width: 135
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d38efad55478b56408d24c9cc1d8c8ac
+      internalID: 176185504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 1672
+        width: 111
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae365b0be41d2964eb4bf267903356c5
+      internalID: -1870415341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 1539
+        width: 158
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2705bff7336c83743baaa6c5026c2ea0
+      internalID: 1296030910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 1539
+        width: 114
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02b3d24f9441a5c4a97ea622cdaecae0
+      internalID: 694368735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1027
+        width: 109
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdd58deb52bab0c42952e03b463bff7f
+      internalID: -1479385633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 1027
+        width: 144
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9010c402e821246b0ce35d0e2d3c61
+      internalID: -110616960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 1027
+        width: 116
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 620614e9c63fd3444b56f297eeb3b389
+      internalID: 17972664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1731
+        y: 1028
+        width: 107
+        height: 508
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cd6fc2ab246e094c9b34b4e6cd0be01
+      internalID: -81858374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 518
+        width: 120
+        height: 502
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464e399174dbf0345b9148fcb972d077
+      internalID: 1113718145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 519
+        width: 127
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f03f39cc09000e4797a6da395125ab2
+      internalID: 115582620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 900
+        width: 48
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c5d8b3140521f4bbd6f52647eeee3a
+      internalID: -833155315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 898
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db47c73af1c23ff45a64a7c1d270b581
+      internalID: 540127042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 880
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc9c2221859534646aab61697ea9502f
+      internalID: -763814771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 1789
+        y: 873
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 132126db9e22dd54a9eab7ec479a680f
+      internalID: 362258546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 719
+        width: 103
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420612580a3fce045af6de8f73cdf622
+      internalID: -1436503814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 1733
+        y: 716
+        width: 92
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5697de2a9a683cd438713d15a7449959
+      internalID: -340387819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 710
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93eb9dbeb99ad6a4d86cfa9b497322a5
+      internalID: 794531963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 697
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece7940ee80fa1c4abf2ca842ed22740
+      internalID: 185710424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 689
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d411734f29e69b4a80d0bbfbac80569
+      internalID: 1841097828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 605
+        width: 96
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4746cf359719114f9f4c5e04c1fcb1e
+      internalID: 993832736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 651
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 922f4df6200ec98468f90d146024d3ae
+      internalID: 806743631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 657
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b313fe81a4ba56429e46992f8ce25b5
+      internalID: 863863702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 630
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc8623283986f245aa01100bd4426a4
+      internalID: -1688501177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 1749
+        y: 606
+        width: 36
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda839b1f2dee174cb1d53f6c6a310f4
+      internalID: -447027498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 597
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b108406f7e68e574985ea1d076b11c6f
+      internalID: -328092934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 523
+        width: 88
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d43b5cee2d6bdd34ba465d56c093d5b3
+      internalID: -1241300408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 575
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45af13e0039c1464dba901584a2ff0e9
+      internalID: 31578785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 1780
+        y: 566
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 220fe92149c3c814187511f6b605fe99
+      internalID: 16467200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 538
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 362b6a6c334659b4d9a138afe09b329a
+      internalID: -693166101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 353
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7246cad7bc41d7944ac21826acf08a26
+      internalID: -1081735794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 320
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b69e16b936db1488b0832f1f642895
+      internalID: 1547743948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 323
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2512b2ef445adb4996d8a2795a735f0
+      internalID: -1581225739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 313
+        width: 57
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99bf0adc81853d149aa0c0e616c375c1
+      internalID: -1425114831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 237
+        width: 69
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c18bbc8601e02e4caa2a144f2d85631
+      internalID: -2083506140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 141
+        width: 73
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5fe306f093ddf84ab3751ce6c57da20
+      internalID: -107508398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 290
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cddbdc4f3ae0f994b8a3cb95fa510082
+      internalID: 1792466695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 282
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66ad9ebc6e528b144b4b456bb5952ae6
+      internalID: -1736535625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 276
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcc0d91ef90acd349af0c148f566bbfe
+      internalID: 833203380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 248
+        width: 47
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a4a3be97f9de74b879fdc46e17aebd
+      internalID: 1371398859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 257
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e37ce550d85bd2c46b88ff84af59cc68
+      internalID: -1269502529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 215
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c531e44b76f2f419d32e450e9085fe
+      internalID: -2091223561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 206
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262b006efddda704287be332446e4333
+      internalID: -1717433277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 206
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b0e4778ff873241b45914c0788a2da
+      internalID: 404261369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_43
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 195
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79311f8a7aafe254c8f5c7e962d4981a
+      internalID: 372234102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_44
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 189
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88dc84f47e474ce45b3257538839315a
+      internalID: 1050440182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_45
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 179
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e67de3c275c7e54d892a915f612a368
+      internalID: -2017542206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_46
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 169
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcbf9a3a95642494f89f42d69c1f0df4
+      internalID: 1890251322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_47
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 159
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68ace62614000f848b939a5a41eb1ed2
+      internalID: 51305387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_48
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 149
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 091146d3e1f03af40941df86abafd636
+      internalID: 2061698964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_49
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 132
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82d18284aa16b5348a01e7b4380eaa5d
+      internalID: -423168023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_50
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 126
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f404cbc3f4eb9248994f3fbdb2fe681
+      internalID: -1944897728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_51
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 123
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82865c6f0c60f504ca76eacf8dcbd640
+      internalID: -929606292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_52
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 110
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed4877dcb40d42543a53942832f7d4e2
+      internalID: -1036240863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_53
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 101
+        width: 34
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b75c3df7b2d400b4c865c776c2493979
+      internalID: -1096309436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_54
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 114
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f42cd7405c7411c4686b4d1d90c17db4
+      internalID: 1228456289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_55
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 101
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e0be11442dc724da6a7e7a19ab5bf7
+      internalID: -1287199920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_56
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 44
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6bc960d4b8aee14c9d897bed3c00e01
+      internalID: 1038904019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_57
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 75
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f73fbaa5c080044b874845e02a8121
+      internalID: -1238337303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_58
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 35
+        width: 15
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7831880c06b98324e974e8beacd88640
+      internalID: 1983520807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_59
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 23
+        width: 31
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36b08e73747dd024c9f9f0be9b8b6f23
+      internalID: 200936725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lazer_blue_SpriteSheet_60
+      rect:
+        serializedVersion: 2
+        x: 1777
+        y: 10
+        width: 27
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e43fe104efe6a49a8891471e8890c3
+      internalID: -1164166860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      lazer_blue_SpriteSheet_0: 176185504
+      lazer_blue_SpriteSheet_1: -1870415341
+      lazer_blue_SpriteSheet_10: -833155315
+      lazer_blue_SpriteSheet_11: 540127042
+      lazer_blue_SpriteSheet_12: -763814771
+      lazer_blue_SpriteSheet_13: 362258546
+      lazer_blue_SpriteSheet_14: -1436503814
+      lazer_blue_SpriteSheet_15: -340387819
+      lazer_blue_SpriteSheet_16: 794531963
+      lazer_blue_SpriteSheet_17: 185710424
+      lazer_blue_SpriteSheet_18: 1841097828
+      lazer_blue_SpriteSheet_19: 993832736
+      lazer_blue_SpriteSheet_2: 1296030910
+      lazer_blue_SpriteSheet_20: 806743631
+      lazer_blue_SpriteSheet_21: 863863702
+      lazer_blue_SpriteSheet_22: -1688501177
+      lazer_blue_SpriteSheet_23: -447027498
+      lazer_blue_SpriteSheet_24: -328092934
+      lazer_blue_SpriteSheet_25: -1241300408
+      lazer_blue_SpriteSheet_26: 31578785
+      lazer_blue_SpriteSheet_27: 16467200
+      lazer_blue_SpriteSheet_28: -693166101
+      lazer_blue_SpriteSheet_29: -1081735794
+      lazer_blue_SpriteSheet_3: 694368735
+      lazer_blue_SpriteSheet_30: 1547743948
+      lazer_blue_SpriteSheet_31: -1581225739
+      lazer_blue_SpriteSheet_32: -1425114831
+      lazer_blue_SpriteSheet_33: -2083506140
+      lazer_blue_SpriteSheet_34: -107508398
+      lazer_blue_SpriteSheet_35: 1792466695
+      lazer_blue_SpriteSheet_36: -1736535625
+      lazer_blue_SpriteSheet_37: 833203380
+      lazer_blue_SpriteSheet_38: 1371398859
+      lazer_blue_SpriteSheet_39: -1269502529
+      lazer_blue_SpriteSheet_4: -1479385633
+      lazer_blue_SpriteSheet_40: -2091223561
+      lazer_blue_SpriteSheet_41: -1717433277
+      lazer_blue_SpriteSheet_42: 404261369
+      lazer_blue_SpriteSheet_43: 372234102
+      lazer_blue_SpriteSheet_44: 1050440182
+      lazer_blue_SpriteSheet_45: -2017542206
+      lazer_blue_SpriteSheet_46: 1890251322
+      lazer_blue_SpriteSheet_47: 51305387
+      lazer_blue_SpriteSheet_48: 2061698964
+      lazer_blue_SpriteSheet_49: -423168023
+      lazer_blue_SpriteSheet_5: -110616960
+      lazer_blue_SpriteSheet_50: -1944897728
+      lazer_blue_SpriteSheet_51: -929606292
+      lazer_blue_SpriteSheet_52: -1036240863
+      lazer_blue_SpriteSheet_53: -1096309436
+      lazer_blue_SpriteSheet_54: 1228456289
+      lazer_blue_SpriteSheet_55: -1287199920
+      lazer_blue_SpriteSheet_56: 1038904019
+      lazer_blue_SpriteSheet_57: -1238337303
+      lazer_blue_SpriteSheet_58: 1983520807
+      lazer_blue_SpriteSheet_59: 200936725
+      lazer_blue_SpriteSheet_6: 17972664
+      lazer_blue_SpriteSheet_60: -1164166860
+      lazer_blue_SpriteSheet_7: -81858374
+      lazer_blue_SpriteSheet_8: 1113718145
+      lazer_blue_SpriteSheet_9: 115582620
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

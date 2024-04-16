@@ -51,7 +51,7 @@ public class KangSeonLaser : MonoBehaviour
 
     public void Shooting()
     {
-
+        lR.enabled = false;
         Vector2 newPos = pos - (Vector2)transform.position;
         float Z = Mathf.Atan2(newPos.y, newPos.x) * Mathf.Rad2Deg;
         laser.transform.localRotation = Quaternion.Euler(0, 0, Z);
@@ -62,7 +62,6 @@ public class KangSeonLaser : MonoBehaviour
     public void ShootEnd()
     {
         isShoot = false;
-        lR.enabled = false;
         laser.SetActive(false);
     }
 

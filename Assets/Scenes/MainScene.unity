@@ -1008,6 +1008,7 @@ MonoBehaviour:
   recoverMax: 4
   difficulty: 
   deadScene: 
+  cursor: {fileID: 2800000, guid: 98568c31ada4e0f468defd3cce823301, type: 3}
 --- !u!4 &337179017
 Transform:
   m_ObjectHideFlags: 0
