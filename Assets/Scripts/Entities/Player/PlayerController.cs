@@ -444,15 +444,7 @@ public class PlayerController : MonoBehaviour
         public override void Jump() { }
         public override void Skill() { }
     }
-    /*
-QTE
- 보스 어택에서 분기문을 통해 일정체력이 되었을 때 QTE 진입, Enter에서 코루틴을 실행시켜줌
-QTE상태에 진입하여 다른 행동을 막고, 클릭으로만 상호작용 하도록
-QTE GaugeUI를 설정, 반복 클릭 QTE에서는 일정시간동안 계속 게이지가 하락하도록 설정
-QTE GaugeUI는 일정 간격의 칸으로 구성된 원형 게이지로, 클릭할 때 마다 한 칸씩 올라가게끔
-게이지 100%도달 혹은 시간 초과시 플레이어 혹은 강선이가 공격받음
-
- */
+    
 
     public class AttachState : PlayerState
     {

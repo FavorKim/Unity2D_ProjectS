@@ -71,7 +71,6 @@ public class KangSeonLaser : MonoBehaviour
         while (true)
         {
             if (isShoot) break;
-            Debug.Log("Corouting");
             pos = player.transform.position;
             lR.SetPosition(1, pos);
             yield return null;
