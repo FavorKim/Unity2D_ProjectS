@@ -41,23 +41,23 @@ public class BossManager : BattleManager
     public void EnterQTE()
     {
         curQTETime = 0;
+        gauge.fillAmount = 0;
         QTEUI.SetActive(true);
         StartCoroutine(CorQTE());
     }
 
     void EndQTE()
     {
-        Debug.Log("EndQTE");
         curQTETime = 0;
         QTEUI.SetActive(false);
         if (gauge.fillAmount >= 1)
             KS.GetAnimator().SetTrigger("QTEWon");
         else
         {
-            // qte defeat;
+            KS.GetAnimator().Play("KangSeon_Disappear");
+            player.SetState(PlayerController.NormalState.Instance);
         }
         StopCoroutine(CorQTE());
-        player.SetState(PlayerController.NormalState.Instance);
     }
 
     IEnumerator CorQTE()

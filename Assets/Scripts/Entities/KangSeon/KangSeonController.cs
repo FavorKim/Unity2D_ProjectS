@@ -33,6 +33,11 @@ public class KangSeonController : MonoBehaviour
         StopCoroutine(CorShoot());
     }
 
+    void OnEndQTE()
+    {
+        player.SetState(PlayerController.NormalState.Instance);
+    }
+
     void OnAttacked()
     {
         gameObject.SetActive(false);

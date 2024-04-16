@@ -295,6 +295,7 @@ public class PlayerController : MonoBehaviour
 
         public virtual void Enter() { }
         public virtual void Exit() { }
+
         public void CheckAttach(RaycastHit2D hit)
         {
             if (hit.transform.gameObject == null) return;
@@ -345,6 +346,7 @@ public class PlayerController : MonoBehaviour
                 cam.m_Lens.OrthographicSize = 9f;
                 player.SetState(QTEState.Instance);
                 KS.EnterQTE();
+                isQTE = false;
                 return;
             }
 
@@ -417,17 +419,16 @@ public class PlayerController : MonoBehaviour
         }
         public override void Enter()
         {
-            UnityEngine.Debug.Log("QTE ENter");
+            player.anim.Play("SNB_Clash_Start");
             bM.EnterQTE();
         }
         public override void Exit()
         {
-            UnityEngine.Debug.Log("QTE Exit");
-
             col.isTrigger = false;
             rb.gravityScale = targetGravity;
             cam.m_Lens.OrthographicSize = player.curSize;
             anim.SetBool("Boss", false);
+            anim.SetTrigger("ClashEnd");
             armSr.enabled = true;
             hookLine.enabled = false;
             aimLine.enabled = true;
