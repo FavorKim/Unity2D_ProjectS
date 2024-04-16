@@ -11,7 +11,7 @@ public class Ground : MonoBehaviour
         if (collision.CompareTag("Aim")) return;
         
         player.JumpCount = 0;
-        if (player.GetState() == PlayerController.AttachState.Instance || player.GetState() == PlayerController.MonAttachState.Instance || player.GetState() == PlayerController.SpinState.Instance || player.GetState() == PlayerController.BossAttackState.Instance) return;
+        if (player.GetState() == PlayerController.AttachState.Instance || player.GetState() == PlayerController.MonAttachState.Instance || player.GetState() == PlayerController.SpinState.Instance || player.GetState() == PlayerController.BossAttackState.Instance|| player.GetState() == PlayerController.QTEState.Instance) return;
         player.GetArm().SetTrigger("Land");
         player.GetAnimator().Play("SNB_Land");
         player.GetAnimator().SetBool("isLand", true);
@@ -20,14 +20,14 @@ public class Ground : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Aim")) return;
-        if (player.GetState() == PlayerController.AttachState.Instance || player.GetState() == PlayerController.MonAttachState.Instance || player.GetState() == PlayerController.SpinState.Instance || player.GetState() == PlayerController.BossAttackState.Instance) return;
+        if (player.GetState() == PlayerController.AttachState.Instance || player.GetState() == PlayerController.MonAttachState.Instance || player.GetState() == PlayerController.SpinState.Instance || player.GetState() == PlayerController.BossAttackState.Instance || player.GetState() == PlayerController.QTEState.Instance) return;
         else player.SetState(PlayerController.NormalState.Instance);
 
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Aim")) return;
-        if (player.GetState() == PlayerController.AttachState.Instance || player.GetState() == PlayerController.MonAttachState.Instance || player.GetState() == PlayerController.SpinState.Instance || player.GetState() == PlayerController.BossAttackState.Instance) return;
+        if (player.GetState() == PlayerController.AttachState.Instance || player.GetState() == PlayerController.MonAttachState.Instance || player.GetState() == PlayerController.SpinState.Instance || player.GetState() == PlayerController.BossAttackState.Instance || player.GetState() == PlayerController.QTEState.Instance) return;
 
         else
         {

@@ -161,7 +161,7 @@ public class Anchor : MonoBehaviour
         point.transform.position = player.transform.position;
         transform.position = player.position;
 
-        if (pC.GetState() != BossAttackState.Instance)
+        if (pC.GetState() != BossAttackState.Instance && pC.GetState() != QTEState.Instance)
             pC.SetState(AirState.Instance);
     }
 

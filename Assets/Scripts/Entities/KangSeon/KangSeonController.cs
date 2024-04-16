@@ -27,6 +27,12 @@ public class KangSeonController : MonoBehaviour
         StartCoroutine(CorShoot());
     }
 
+    public void EnterQTE()
+    {
+        anim.Play("KangSeon_Clash_Start");
+        StopCoroutine(CorShoot());
+    }
+
     void OnAttacked()
     {
         gameObject.SetActive(false);

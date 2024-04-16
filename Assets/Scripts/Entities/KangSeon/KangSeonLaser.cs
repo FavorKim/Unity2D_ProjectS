@@ -30,8 +30,8 @@ public class KangSeonLaser : MonoBehaviour
     {
         lR.SetPosition(0, KS.position);
         lR.SetPosition(1, KS.position);
-        lR.startWidth = 0.1f;
-        lR.endWidth = 0.1f;
+        lR.startWidth = 0.5f;
+        lR.endWidth = 0.5f;
         lR.enabled = false;
         laser.transform.localScale = new Vector3(80, 5, 1);
 
