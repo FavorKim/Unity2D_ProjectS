@@ -12,9 +12,10 @@ public class KangSeonLaser : MonoBehaviour
     LineRenderer lR;
     Vector2 pos = Vector2.zero;
 
+    bool isShoot = false;
+
     public void SetLaserOff() { lR.enabled = false; }
 
-    bool isShoot = false;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class KangSeonLaser : MonoBehaviour
         playerlayer = 1 << 8;
         laser = Instantiate(Resources.Load<GameObject>("Pivot"));
         laser.transform.parent = gameObject.transform;
-        
+
     }
 
     private void OnEnable()
@@ -33,7 +34,7 @@ public class KangSeonLaser : MonoBehaviour
         lR.startWidth = 0.5f;
         lR.endWidth = 0.5f;
         lR.enabled = false;
-        laser.transform.localScale = new Vector3(80, 5, 1);
+        laser.transform.localScale = new Vector3(160, 5, 1);
 
         laser.gameObject.SetActive(false);
     }
@@ -41,12 +42,14 @@ public class KangSeonLaser : MonoBehaviour
     public void Ready()
     {
         lR.enabled = true;
+        isShoot = false;
         StartCoroutine(CorAiming());
     }
 
     public void Shoot()
     {
         isShoot = true;
+        StopCoroutine(CorAiming());
         pos = player.transform.position;
         lR.SetPosition(1, pos);
     }
@@ -70,17 +73,18 @@ public class KangSeonLaser : MonoBehaviour
     {
         while (true)
         {
-            if (isShoot) break;
-            Debug.Log("Corouting");
-            pos = player.transform.position;
-            lR.SetPosition(1, pos);
+            if (!isShoot)
+                lR.SetPosition(1, player.transform.position);
             yield return null;
         }
-        isShoot = false;
-        StopCoroutine(CorAiming());
     }
-
-
+    /*
+    private void Update()
+    {
+        if (!isShoot) { pos = player.transform.position; }
+        lR.SetPosition(1, pos);
+    }
+    */
 
 
 }

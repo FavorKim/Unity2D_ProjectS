@@ -16,11 +16,12 @@ public class Ground : MonoBehaviour
         player.GetAnimator().Play("SNB_Land");
         player.GetAnimator().SetBool("isLand", true);
         VFXManager.Instance.PlayVFX("VFX_Land");
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Aim")) return;
-        if (player.GetState() == PlayerController.AttachState.Instance || player.GetState() == PlayerController.MonAttachState.Instance || player.GetState() == PlayerController.SpinState.Instance || player.GetState() == PlayerController.BossAttackState.Instance || player.GetState() == PlayerController.QTEState.Instance) return;
+        if (player.GetState() == PlayerController.AttachState.Instance || player.GetState() == PlayerController.MonAttachState.Instance || player.GetState() == PlayerController.BossAttackState.Instance || player.GetState() == PlayerController.QTEState.Instance) return;
         else player.SetState(PlayerController.NormalState.Instance);
 
     }

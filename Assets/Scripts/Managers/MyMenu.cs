@@ -33,7 +33,6 @@ public class MyMenu : Singleton<MyMenu>
     }
     public void OnResolution()
     {
-        Debug.Log("menuOnREs");
         GameManager.Instance.SetResolution(dropdown.value);
     }
 }

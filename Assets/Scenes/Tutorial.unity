@@ -364,7 +364,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -15.48, y: 15.37}
+  m_Offset: {x: -14.42, y: 15.37}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -961,7 +961,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.4, y: -99.1, z: -15}
+  m_LocalPosition: {x: -87.5, y: -94, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5941,7 +5941,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881920879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.4, y: -99.1, z: 0}
+  m_LocalPosition: {x: -87.5, y: -94, z: 0}
   m_LocalScale: {x: 0.63761, y: 0.63761, z: 0.63761}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5965,8 +5965,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0.1
+  m_AngularDrag: 0.1
   m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -5985,33 +5985,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201ddf6c4b70f9244aa7d25c147a5faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armSr: {fileID: 125293694}
-  hp: {fileID: 1530350970}
+  spinLayer:
+    serializedVersion: 2
+    m_Bits: 128
   cam: {fileID: 1877002548}
-  bM: {fileID: 0}
   anchor: {fileID: 1873455188}
   ancPos: {fileID: 1873455184}
   aimLine: {fileID: 362189787}
   hookLine: {fileID: 1277266182}
-  spinLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  bM: {fileID: 0}
+  hp: {fileID: 1530350970}
   arm: {fileID: 125293695}
   moveForce: 45
   jumpForce: 900
+
+  armSr: {fileID: 125293694}
+
   MaxSpeed: 9
   targetMaxSpeed: 9
-  climbSpeed: 10
-  skyClimbSpeed: 10
-  targetGravity: 4
-  rewindDist: 1
-  rewindSpeed: 0.5
-  dashForce: 1.5
-  excuteMove: 4
-  swingForce: 45
-  swingCooldown: 4
-  damagedDash: 5
-  spinSpeed: 30
 --- !u!114 &881920885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6227,9 +6218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 0, z: -15}
-  m_XDamping: 0.5
-  m_YDamping: 0.5
-  m_ZDamping: 0.5
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -88170,7 +88161,7 @@ GameObject:
   - component: {fileID: 1165887821267535103}
   - component: {fileID: 1165887821267535089}
   - component: {fileID: 1165887821267535090}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Gate_Iron_Right
   m_TagString: CantAttach
   m_Icon: {fileID: 0}
@@ -88355,7 +88346,7 @@ GameObject:
   - component: {fileID: 3100822317400208058}
   - component: {fileID: 3100822317400208052}
   - component: {fileID: 3100822317400208055}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Gate_Iron_Left
   m_TagString: CantAttach
   m_Icon: {fileID: 0}

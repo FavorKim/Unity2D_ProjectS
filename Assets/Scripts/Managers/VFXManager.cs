@@ -70,6 +70,21 @@ public class VFXManager : Singleton<VFXManager>
         pointPref.transform.position = position;
         anim.Play(name,0, duration);
     }
+    public void PlayVFX(Vector2 position, Vector2 dest, string name)
+    {
+        float rotz = GetRotateZ(position, dest);
+        pointPref.transform.rotation = Quaternion.Euler(0, 0, rotz);
+        PlayVFX(position, name);
+    }
+
+    public float GetRotateZ(Vector2 orgPos, Vector2 destPos)
+    {
+        Vector2 dir = destPos - orgPos;
+        float rotZ = MathF.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        return rotZ;
+    }
+
+    
 
     public void SetVFXBool(bool val) { }
     //public void PlayVFX(Vector2 position, string name, int layer, float duration)
