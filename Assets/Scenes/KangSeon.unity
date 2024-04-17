@@ -1609,7 +1609,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 22.4
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1735,7 +1735,7 @@ GameObject:
   - component: {fileID: 1239250600}
   - component: {fileID: 1239250602}
   - component: {fileID: 1239250603}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Wall_Right
   m_TagString: CantAttach
   m_Icon: {fileID: 0}
@@ -2573,7 +2573,7 @@ MonoBehaviour:
   m_Follow: {fileID: 2133943341}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 22.4
+    OrthographicSize: 15
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -3484,10 +3484,6 @@ PrefabInstance:
     - target: {fileID: 3628450924675176263, guid: 8787f4c39906f4f4099286891dbf3f06, type: 3}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3628450924675176263, guid: 8787f4c39906f4f4099286891dbf3f06, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8941
       objectReference: {fileID: 0}
     - target: {fileID: 3628450924675176263, guid: 8787f4c39906f4f4099286891dbf3f06, type: 3}
       propertyPath: m_LocalPosition.x

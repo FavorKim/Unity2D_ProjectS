@@ -10,82 +10,89 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Variable
 
-    #region Vars
-
-    protected Rigidbody2D rb;
-    protected Animator anim;
-    protected SpriteRenderer sR;
-    [SerializeField] protected SpriteRenderer armSr;
-    public Animator GetAnimator() { return anim; }
+    #region MonoBehaviour
     protected GameObject enemy;
-    [SerializeField] HPManager hp;
-    [SerializeField] protected CinemachineVirtualCamera cam;
-    [SerializeField] BossManager bM;
-
     public GameObject Enemy { get; set; }
 
+    [SerializeField] protected CinemachineVirtualCamera cam;
+
+    [Space(10)]
+    [Header("Anchor")]
     [SerializeField] protected Anchor anchor;
     [SerializeField] protected Transform ancPos;
+
+    [Space(10)]
+    [Header("Line")]
     [SerializeField] protected LineRenderer aimLine;
     [SerializeField] protected LineRenderer hookLine;
-    [SerializeField] protected LayerMask spinLayer;
+
+    [Space(10)]
+    [Header("Manger")]
+    [SerializeField] BossManager bM;
+    [SerializeField] HPManager hp;
+
+    [Space(10)]
+    [Header("Arm")]
     [SerializeField] protected Animator arm;
-    public Animator GetArm() { return arm; }
+    [SerializeField] protected SpriteRenderer armSr;
 
+    protected SpriteRenderer sR;
+    protected Animator anim;
+    protected Rigidbody2D rb;
     protected CapsuleCollider2D col;
-
-
+    #endregion
     [Space(20)]
-    [Header("About Move")]
-    [SerializeField] protected float moveForce = 45.0f;
-    [SerializeField] protected float jumpForce = 900.0f;
-    [SerializeField] public float MaxSpeed = 9.0f;
-    [SerializeField] public float targetMaxSpeed = 9.0f;
-    [SerializeField] protected float climbSpeed = 10.0f;
-    [SerializeField] protected float skyClimbSpeed = 10.0f;
-    [SerializeField] protected float targetGravity = 4.0f;
-    [SerializeField] protected float rewindDist = 0.5f;
-    [SerializeField] protected float rewindSpeed = 1.5f;
-    [SerializeField] protected float dashForce = 1.5f;
-    [SerializeField] protected float excuteMove = 0.3f;
+    [SerializeField] protected LayerMask spinLayer;
 
-    [Header("About Dash")]
-    [SerializeField] protected float swingForce = 40.0f;
-    [SerializeField] protected float swingCooldown = 3.0f;
-    [SerializeField] protected float damagedDash = 5.0f;
-    protected float swingDashCool { get; set; }
-
-    [Space(20)]
-    [Header("About SpinAttack")]
-    [SerializeField] float spinSpeed = 10.0f;
-
-    public float GetTargetGrav() { return targetGravity; }
-
+    #region Vector2
     protected Vector2 moveVal;
     protected Vector2 climbVal;
-
+    #endregion
+    #region float
+    protected float moveForce = 45.0f;
+    protected float jumpForce = 900.0f;
+    [HideInInspector] public float MaxSpeed = 9.0f;
+    [HideInInspector] public float targetMaxSpeed = 9.0f;
+    protected float climbSpeed = 10.0f;
+    protected float skyClimbSpeed = 10.0f;
+    protected float targetGravity = 4.0f;
+    protected float rewindDist = 1f;
+    protected float rewindSpeed = 0.5f;
+    protected float dashForce = 1.5f;
+    protected float excuteMove = 4f;
+    protected float swingForce = 45.0f;
+    protected float swingCooldown = 4.0f;
+    protected float damagedDash = 5.0f;
+    protected float swingDashCool { get; set; }
+    float spinSpeed = 30.0f;
+    float curSize;
+    #endregion
+    #region int
     public int JumpCount { get; set; }
-
-
-    public void ResetDashCool() { swingDashCool = swingCooldown; }
-    public bool CanDash() { return swingDashCool == swingCooldown; }
-    public bool IsAttacking { get; set; }
-    public bool IsSpinning { get; set; }
-    public SpriteRenderer GetSR() { return sR; }
-    private PlayerState state;
-    public PlayerState GetState() { return state; }
-
     protected int MaxHpCount = 4;
     protected int CurHpCount = 4;
-    public int GetCurHp { get { return CurHpCount; } }
-
-    float curSize;
+    #endregion
+    #region bool
+    public bool IsAttacking { get; set; }
+    public bool IsSpinning { get; set; }
     public bool isFreeze { get; set; }
-
     bool isInvincible = false;
     #endregion
-
+    #region getter
+    public SpriteRenderer GetSR() { return sR; }
+    public PlayerState GetState() { return state; }
+    public Animator GetArm() { return arm; }
+    public Animator GetAnimator() { return anim; }
+    public float GetTargetGrav() { return targetGravity; }
+    public int GetCurHp { get { return CurHpCount; } }
+    #endregion
+    #endregion
+    
+    #region Methods
+    #region State
+    private PlayerState state;
     public void StateStaying(PlayerState state) { this.state = state; }
     public void SetState(PlayerState state)
     {
@@ -93,29 +100,7 @@ public class PlayerController : MonoBehaviour
         this.state = state;
         state.Enter();
     }
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        state = new PlayerState(this);
-        col = GetComponent<CapsuleCollider2D>();
-        anim = GetComponent<Animator>();
-        sR = GetComponent<SpriteRenderer>();
-        IsAttacking = false;
-        IsSpinning = false;
-        curSize = cam.m_Lens.OrthographicSize;
-
-
-        StartCoroutine(DashCool());
-    }
-    private void FixedUpdate()
-    {
-        state.Move();
-    }
-    private void Update()
-    {
-        SetAnim();
-    }
+    #endregion
 
     void SetAnim()
     {
@@ -157,7 +142,42 @@ public class PlayerController : MonoBehaviour
 
 
     }
+    public void Recover()
+    {
+        CurHpCount++;
+    }
 
+    public void ResetDashCool() { swingDashCool = swingCooldown; }
+    public bool CanDash() { return swingDashCool == swingCooldown; }
+
+    #endregion
+    
+    #region LifeCycle
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        state = new PlayerState(this);
+        col = GetComponent<CapsuleCollider2D>();
+        anim = GetComponent<Animator>();
+        sR = GetComponent<SpriteRenderer>();
+        IsAttacking = false;
+        IsSpinning = false;
+        curSize = cam.m_Lens.OrthographicSize;
+
+
+        StartCoroutine(DashCool());
+    }
+    private void FixedUpdate()
+    {
+        state.Move();
+    }
+    private void Update()
+    {
+        SetAnim();
+    }
+    #endregion
+
+    #region PlayerInput
     void OnMove(InputValue val)
     {
         moveVal = val.Get<Vector2>();
@@ -178,6 +198,9 @@ public class PlayerController : MonoBehaviour
     {
         climbVal = val.Get<Vector2>().normalized;
     }
+    #endregion
+
+    #region Event
     public void OnDamaged()
     {
         if (CurHpCount == 1 || GameManager.Instance.difficulty == "legend")
@@ -196,25 +219,18 @@ public class PlayerController : MonoBehaviour
         Vector2 dir = new Vector2(-1, 1);
         rb.AddForce(dir * damagedDash * Time.deltaTime, ForceMode2D.Impulse);
     }
-
-    public void Recover()
-    {
-        CurHpCount++;
-    }
-
     public void OnDead()
     {
         GameManager.Instance.deadScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene("Dead");
     }
-
-
-
     public void OnBossATKEnd()
     {
         SetState(NormalState.Instance);
     }
+    #endregion
 
+    #region Coroutine
     private IEnumerator DashCool()
     {
         while (true)
@@ -223,7 +239,6 @@ public class PlayerController : MonoBehaviour
             swingDashCool = swingCooldown;
         }
     }
-
     private IEnumerator InvincibleTime()
     {
         isInvincible = true;
@@ -231,7 +246,9 @@ public class PlayerController : MonoBehaviour
         isInvincible = false;
         StopCoroutine(InvincibleTime());
     }
+    #endregion
 
+    #region PlayerState
     public class PlayerState : IPlayerState
     {
         #region vars
@@ -268,6 +285,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerState.player = player;
         }
+
         public virtual void Move()
         {
             if (player.isFreeze == true) return;
@@ -339,12 +357,12 @@ public class PlayerController : MonoBehaviour
             KS = player.enemy.GetComponent<KangSeonController>();
             KS.GetLaser().SetLaserOff();
             KS.GetLaser().GetLaser().SetActive(false);
+            cam.m_Lens.OrthographicSize = 5f;
 
             if (bM.GetWave() % 3 == 0 && bM.GetWave() != 0)
             {
                 isQTE = true;
                 player.transform.position = new Vector2(KS.gameObject.transform.position.x, KS.gameObject.transform.position.y);
-                cam.m_Lens.OrthographicSize = 9f;
                 player.SetState(QTEState.Instance);
                 KS.EnterQTE();
                 isQTE = false;
@@ -354,7 +372,6 @@ public class PlayerController : MonoBehaviour
             player.GetAnimator().SetBool("Boss", true);
 
 
-            cam.m_Lens.OrthographicSize = 9f;
 
             if (bM.GetWave() > 0)
             {
@@ -442,16 +459,7 @@ public class PlayerController : MonoBehaviour
         public override void Jump() { }
         public override void Skill() { }
     }
-    /*
-QTE
- 보스 어택에서 분기문을 통해 일정체력이 되었을 때 QTE 진입, Enter에서 코루틴을 실행시켜줌
-QTE상태에 진입하여 다른 행동을 막고, 클릭으로만 상호작용 하도록
-QTE GaugeUI를 설정, 반복 클릭 QTE에서는 일정시간동안 계속 게이지가 하락하도록 설정
-QTE GaugeUI는 일정 간격의 칸으로 구성된 원형 게이지로, 클릭할 때 마다 한 칸씩 올라가게끔
-게이지 100%도달 혹은 시간 초과시 플레이어 혹은 강선이가 공격받음
-
- */
-
+    
     public class AttachState : PlayerState
     {
         public AttachState(PlayerController player) : base(player) { }
@@ -714,6 +722,7 @@ QTE GaugeUI는 일정 간격의 칸으로 구성된 원형 게이지로, 클릭할 때 마다 한 칸씩 올
             //anim.SetTrigger("Exit");
         }
     }
+
     public class AirState : PlayerState
     {
         public AirState(PlayerController player) : base(player) { }
@@ -845,8 +854,9 @@ QTE GaugeUI는 일정 간격의 칸으로 구성된 원형 게이지로, 클릭할 때 마다 한 칸씩 올
         }
 
     }
+    #endregion
 
-
+    #region Collision
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (IsSpinning)
@@ -879,6 +889,7 @@ QTE GaugeUI는 일정 간격의 칸으로 구성된 원형 게이지로, 클릭할 때 마다 한 칸씩 올
         }
 
     }
+    #endregion
 }
 
 public interface IPlayerState
@@ -887,6 +898,3 @@ public interface IPlayerState
     public void Jump();
     public void Skill();
 }
-
-
-

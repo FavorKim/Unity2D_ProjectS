@@ -364,7 +364,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -15.48, y: 15.37}
+  m_Offset: {x: -14.42, y: 15.37}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -961,7 +961,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.4, y: -99.1, z: -15}
+  m_LocalPosition: {x: 38.49, y: -35.15, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5941,7 +5941,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881920879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.4, y: -99.1, z: 0}
+  m_LocalPosition: {x: 38.49, y: -35.15, z: 0}
   m_LocalScale: {x: 0.63761, y: 0.63761, z: 0.63761}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -88170,7 +88170,7 @@ GameObject:
   - component: {fileID: 1165887821267535103}
   - component: {fileID: 1165887821267535089}
   - component: {fileID: 1165887821267535090}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Gate_Iron_Right
   m_TagString: CantAttach
   m_Icon: {fileID: 0}
@@ -88355,7 +88355,7 @@ GameObject:
   - component: {fileID: 3100822317400208058}
   - component: {fileID: 3100822317400208052}
   - component: {fileID: 3100822317400208055}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Gate_Iron_Left
   m_TagString: CantAttach
   m_Icon: {fileID: 0}
