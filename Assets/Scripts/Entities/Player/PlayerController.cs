@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
     public bool isFreeze { get; set; }
 
     bool isInvincible = false;
+
     #endregion
 
     #region Vector2
@@ -561,9 +562,7 @@ public class PlayerController : MonoBehaviour
         {
             float dist = Vector2.Distance(ancPos.position, player.transform.position) - rewindDist;
             player.transform.position = Vector2.MoveTowards(player.transform.position, ancPos.position, dist);
-            //VFXManager.Instance.PlayVFX()
             anchor.GetJoint().autoConfigureDistance = true;
-            //player.SetState(ClimbState.Instance);
         }
         public override void Enter()
         {
@@ -612,6 +611,7 @@ public class PlayerController : MonoBehaviour
         public override void Enter()
         {
             mon = player.enemy.gameObject.GetComponent<MonsterShoot>();
+            VFXManager.Instance.GetManager().PlayVFX(player.transform.position, player.enemy.transform.position, "VFX_ExcuteDash");
 
             if (mon.CompareTag("FlyingMonster"))
                 rb.gravityScale = 0.1f;
