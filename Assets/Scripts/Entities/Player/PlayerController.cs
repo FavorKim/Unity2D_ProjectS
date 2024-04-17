@@ -41,6 +41,10 @@ public class PlayerController : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    [Header("About Move")]
+>>>>>>> parent of a823ba9 (ver 0.7.4)
 =======
     [Header("About Move")]
 >>>>>>> parent of a823ba9 (ver 0.7.4)
@@ -64,6 +68,10 @@ public class PlayerController : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    [Space(20)]
+>>>>>>> parent of a823ba9 (ver 0.7.4)
 =======
     [Space(20)]
 >>>>>>> parent of a823ba9 (ver 0.7.4)
