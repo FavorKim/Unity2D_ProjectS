@@ -81,6 +81,7 @@ public class VFXManager : Singleton<VFXManager>
     {
         Vector2 dir = destPos - orgPos;
         float rotZ = MathF.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
         return rotZ;
     }
 

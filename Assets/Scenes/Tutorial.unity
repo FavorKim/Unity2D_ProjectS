@@ -961,7 +961,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.5, y: -94, z: -15}
+  m_LocalPosition: {x: 31.2, y: -36.9, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5941,7 +5941,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881920879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.5, y: -94, z: 0}
+  m_LocalPosition: {x: 31.2, y: -36.9, z: 0}
   m_LocalScale: {x: 0.63761, y: 0.63761, z: 0.63761}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5996,11 +5996,7 @@ MonoBehaviour:
   bM: {fileID: 0}
   hp: {fileID: 1530350970}
   arm: {fileID: 125293695}
-  moveForce: 45
-  jumpForce: 900
-
   armSr: {fileID: 125293694}
-
   MaxSpeed: 9
   targetMaxSpeed: 9
 --- !u!114 &881920885
