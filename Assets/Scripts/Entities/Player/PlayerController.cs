@@ -774,16 +774,25 @@ public class PlayerController : MonoBehaviour
 
         public override void Move()
         {
-            Spin();
+
         }
         public override void Jump() { base.Jump(); player.SetState(AirState.Instance); }
 
         public override void Enter()
         {
             target = GetNearest();
+            if (target == null)
+            {
+                player.SetState(AirState.Instance);
+                return;
+            }
+
+            rb.gravityScale = 0.0f;
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0.0f;
 
             anim.Play("SNB_Spinning");
-            Spin();
+            player.StartCoroutine(CorSpin());
 
             armSr.enabled = false;
         }
@@ -791,46 +800,47 @@ public class PlayerController : MonoBehaviour
         {
             rb.gravityScale = targetGravity;
             player.StopCoroutine(ITrace());
+            player.StopCoroutine(CorSpin());
             col.isTrigger = false;
             player.IsSpinning = false;
 
         }
 
-        void Spin()
+        IEnumerator CorSpin()
         {
-            rb.gravityScale = 0.0f;
-            rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0.0f;
+            while (true)
+            {
+                yield return null;
 
-            if (target == null) 
-            {
-                anim.Play("SNB_Fall");
-                player.SetState(AirState.Instance);
-                return;
-            }
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                time += Time.deltaTime;
-            }
-            if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                if (time < chargeTime)
+                if (Input.GetKey(KeyCode.LeftShift))
                 {
-                    anim.Play("SNB_Fall");
-                    player.SetState(AirState.Instance);
-                    return;
+                    time += Time.deltaTime;
                 }
                 else
                 {
-                    col.isTrigger = true;
-                    anim.SetTrigger("SpinEnd");
-                    player.IsSpinning = true;
-                    player.StartCoroutine(ITrace());
+                    if (time < chargeTime)
+                    {
+                        anim.Play("SNB_Fall");
+                        player.SetState(AirState.Instance);
+                        time = 0.0f;
+
+                        break;
+
+                    }
+                    else
+                    {
+                        col.isTrigger = true;
+                        anim.SetTrigger("SpinEnd");
+                        player.IsSpinning = true;
+                        player.StartCoroutine(ITrace());
+                    time = 0.0f;
+                        break;
+                    }
+
+
                 }
-                time = 0.0f;
-
-
             }
+            
 
         }
 
