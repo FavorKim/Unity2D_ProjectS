@@ -5989,6 +5989,14 @@ MonoBehaviour:
   hp: {fileID: 1530350970}
   cam: {fileID: 1877002548}
   bM: {fileID: 0}
+  anchor: {fileID: 1873455188}
+  ancPos: {fileID: 1873455184}
+  aimLine: {fileID: 362189787}
+  hookLine: {fileID: 1277266182}
+  spinLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  arm: {fileID: 125293695}
   MaxSpeed: 9
   targetMaxSpeed: 9
 --- !u!114 &881920885

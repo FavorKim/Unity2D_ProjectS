@@ -37,17 +37,17 @@ public class PlayerController : MonoBehaviour
 
 
 
-    protected float moveForce = 45.0f;
-    protected float jumpForce = 900.0f;
-    public float MaxSpeed = 9.0f;
-    public float targetMaxSpeed = 9.0f;
-    protected float climbSpeed = 10.0f;
-    protected float skyClimbSpeed = 10.0f;
-    protected float targetGravity = 4.0f;
-    protected float rewindDist = 0.5f;
-    protected float rewindSpeed = 1.5f;
-    protected float dashForce = 1.5f;
-    protected float excuteMove = 0.3f;
+    [SerializeField] protected float moveForce = 45.0f;
+    [SerializeField] protected float jumpForce = 900.0f;
+    [SerializeField] public float MaxSpeed = 9.0f;
+    [SerializeField] public float targetMaxSpeed = 9.0f;
+    [SerializeField] protected float climbSpeed = 10.0f;
+    [SerializeField] protected float skyClimbSpeed = 10.0f;
+    [SerializeField] protected float targetGravity = 4.0f;
+    [SerializeField] protected float rewindDist = 0.5f;
+    [SerializeField] protected float rewindSpeed = 1.5f;
+    [SerializeField] protected float dashForce = 1.5f;
+    [SerializeField] protected float excuteMove = 0.3f;
 
     protected float swingForce = 40.0f;
     protected float swingCooldown = 3.0f;
@@ -439,15 +439,7 @@ public class PlayerController : MonoBehaviour
         public override void Jump() { }
         public override void Skill() { }
     }
-    /*
-QTE
- 보스 어택에서 분기문을 통해 일정체력이 되었을 때 QTE 진입, Enter에서 코루틴을 실행시켜줌
-QTE상태에 진입하여 다른 행동을 막고, 클릭으로만 상호작용 하도록
-QTE GaugeUI를 설정, 반복 클릭 QTE에서는 일정시간동안 계속 게이지가 하락하도록 설정
-QTE GaugeUI는 일정 간격의 칸으로 구성된 원형 게이지로, 클릭할 때 마다 한 칸씩 올라가게끔
-게이지 100%도달 혹은 시간 초과시 플레이어 혹은 강선이가 공격받음
-
- */
+    
 
     public class AttachState : PlayerState
     {
