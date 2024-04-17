@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
 {
     #region Variable
 
+    [Space(20)]
+    [SerializeField] protected LayerMask spinLayer;
+
     #region MonoBehaviour
     protected GameObject enemy;
     public GameObject Enemy { get; set; }
@@ -43,8 +46,6 @@ public class PlayerController : MonoBehaviour
     protected Rigidbody2D rb;
     protected CapsuleCollider2D col;
     #endregion
-    [Space(20)]
-    [SerializeField] protected LayerMask spinLayer;
 
     #region Vector2
     protected Vector2 moveVal;
@@ -166,6 +167,8 @@ public class PlayerController : MonoBehaviour
 
 
         StartCoroutine(DashCool());
+
+        UnityEngine.Debug.Log(GameManager.Instance.difficulty);
     }
     private void FixedUpdate()
     {
@@ -879,9 +882,10 @@ public class PlayerController : MonoBehaviour
             }
             if (collision.CompareTag("DamageTile"))
                 anim.Play("SNB_Damaged");
-            if (collision.CompareTag("Finish"))
-                isFreeze = true;
         }
+
+        if (collision.CompareTag("Finish"))
+            isFreeze = true;
 
         if (collision.CompareTag("DeadZone"))
         {

@@ -15,23 +15,21 @@ public class GameManager : Singleton<GameManager>
     float sliderValue;
     bool isFull = true;
 
-    [SerializeField] int recoverMax = 4;
-    //[SerializeField] GameObject menuPref;
+    int recoverMax = 4;
     GameObject menu;
     public int GetRecoverMax() { return recoverMax; }
     public string difficulty = "";
     public string deadScene;
-    [SerializeField] Texture2D cursor;
+
+    Texture2D cursor;
 
 
-    private void Awake()
-    {
-        UnityEngine.Cursor.SetCursor(cursor, new Vector2(cursor.width / 2, cursor.height / 2), CursorMode.Auto);
-    }
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
+        cursor = Resources.Load<Texture2D>("Cursor");
 
-        DontDestroyOnLoad(this.gameObject);
+        UnityEngine.Cursor.SetCursor(cursor, new Vector2(cursor.width / 2, cursor.height / 2), CursorMode.Auto);
 
         if (FindAnyObjectByType<MyMenu>() == null)
             menu = Instantiate(Resources.Load<GameObject>("Menu"));
@@ -42,7 +40,6 @@ public class GameManager : Singleton<GameManager>
 
         Application.targetFrameRate = 60;
     }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -92,8 +89,6 @@ public class GameManager : Singleton<GameManager>
                 break;
         }
     }
-
-
     public void SetFullorWindow(UnityEngine.UI.Toggle toggle)
     {
         isFull = toggle.isOn;
@@ -108,7 +103,6 @@ public class GameManager : Singleton<GameManager>
     {
         Application.Quit();
     }
-
 
     public void SetDifficultyEasy() { difficulty = "easy"; GameStart(); }
     public void SetDifficultyNormal() { difficulty = "normal"; recoverMax = 4; GameStart(); }
