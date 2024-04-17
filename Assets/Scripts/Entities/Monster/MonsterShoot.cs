@@ -10,9 +10,7 @@ public class MonsterShoot : MonoBehaviour
     [SerializeField]CapsuleCollider2D col;
     CircleCollider2D circle;
     Rigidbody2D rb;
-
-    //LineRenderer lR;
-
+    LineRenderer lR;
     //GameObject bulletPref;
 
     //[SerializeField] float moveSpeed = 1.5f;
@@ -34,11 +32,11 @@ public class MonsterShoot : MonoBehaviour
         circle = GetComponent<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
 
-        //lR = GetComponent<LineRenderer>();
+        lR = GetComponent<LineRenderer>();
 
-        //lR.startWidth = size;
+        lR.startWidth = size;
 
-        //lR.enabled = false;
+        lR.enabled = false;
     }
 
     private void OnEnable()
@@ -70,10 +68,8 @@ public class MonsterShoot : MonoBehaviour
     private void Update()
     {
         //moveTime += Time.deltaTime;
-
-        //lR.SetPosition(0, transform.position);
-        //lR.SetPosition(1, player.transform.position);
-
+        lR.SetPosition(0, transform.position);
+        lR.SetPosition(1, player.transform.position);
         OnAttach();
         Aim();
         Attack();
@@ -93,11 +89,11 @@ public class MonsterShoot : MonoBehaviour
         if (dist < detectRange)
         {
             aimDuration += Time.deltaTime;
-            //lR.enabled = true;
+            lR.enabled = true;
         }
         else
         {
-            //lR.enabled = false;
+            lR.enabled = false;
         }
     }
 

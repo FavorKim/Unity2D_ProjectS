@@ -36,7 +36,12 @@ public class PlayerController : MonoBehaviour
     protected CapsuleCollider2D col;
 
 
+    [Space(20)]
 
+<<<<<<< HEAD
+=======
+    [Header("About Move")]
+>>>>>>> parent of a823ba9 (ver 0.7.4)
     [SerializeField] protected float moveForce = 45.0f;
     [SerializeField] protected float jumpForce = 900.0f;
     [SerializeField] public float MaxSpeed = 9.0f;
@@ -48,13 +53,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected float rewindSpeed = 1.5f;
     [SerializeField] protected float dashForce = 1.5f;
     [SerializeField] protected float excuteMove = 0.3f;
+<<<<<<< HEAD
+=======
+    [Space(20)]
+>>>>>>> parent of a823ba9 (ver 0.7.4)
 
-    protected float swingForce = 40.0f;
-    protected float swingCooldown = 3.0f;
-    protected float damagedDash = 5.0f;
+    [Header("About Dash")]
+    [SerializeField] protected float swingForce = 40.0f;
+    [SerializeField] protected float swingCooldown = 3.0f;
+    [SerializeField] protected float damagedDash = 5.0f;
     protected float swingDashCool { get; set; }
 
-    float spinSpeed = 10.0f;
+    [Space(20)]
+    [Header("About SpinAttack")]
+    [SerializeField] float spinSpeed = 10.0f;
 
     public float GetTargetGrav() { return targetGravity; }
 
@@ -97,7 +109,6 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
         sR = GetComponent<SpriteRenderer>();
-       
         IsAttacking = false;
         IsSpinning = false;
         curSize = cam.m_Lens.OrthographicSize;
@@ -129,12 +140,12 @@ public class PlayerController : MonoBehaviour
         if (moveVal.x != 0)
         {
             anim.SetBool("isRun", true);
-            //arm.SetBool("isRunning", true);
+            arm.SetBool("isRunning", true);
         }
         else
         {
             anim.SetBool("isRun", false);
-            //arm.SetBool("isRunning", false);
+            arm.SetBool("isRunning", false);
         }
 
         if (moveVal.x < 0)
@@ -341,7 +352,7 @@ public class PlayerController : MonoBehaviour
             {
                 isQTE = true;
                 player.transform.position = new Vector2(KS.gameObject.transform.position.x, KS.gameObject.transform.position.y);
-                cam.m_Lens.OrthographicSize = 5f;
+                cam.m_Lens.OrthographicSize = 9f;
                 player.SetState(QTEState.Instance);
                 KS.EnterQTE();
                 isQTE = false;
@@ -351,7 +362,7 @@ public class PlayerController : MonoBehaviour
             player.GetAnimator().SetBool("Boss", true);
 
 
-            cam.m_Lens.OrthographicSize = 5f;
+            cam.m_Lens.OrthographicSize = 9f;
 
             if (bM.GetWave() > 0)
             {
