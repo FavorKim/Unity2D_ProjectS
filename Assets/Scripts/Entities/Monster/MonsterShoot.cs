@@ -56,7 +56,7 @@ public class MonsterShoot : MonoBehaviour
             if (gameObject.CompareTag("FlyingMonster"))
                 rb.gravityScale = 0f;
 
-
+            anim.Play("mon_Idle");
             transform.SetParent(player.transform, false);
             transform.localPosition = Vector3.zero;
 

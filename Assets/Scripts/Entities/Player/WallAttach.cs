@@ -10,7 +10,7 @@ public class WallAttach : MonoBehaviour
     {
         if (collision.CompareTag("Aim")) return;
         if (player.GetState() == PlayerController.AttachState.Instance || player.GetState() == PlayerController.MonAttachState.Instance || player.GetState() == PlayerController.SpinState.Instance || collision.CompareTag("CantAttach") || player.GetState() == PlayerController.BossAttackState.Instance || player.GetState() == PlayerController.QTEState.Instance) return;
-        else if (collision.CompareTag("Attachable") || collision.CompareTag("Platform"))
+        else if (collision.CompareTag("Attachable") || collision.CompareTag("Platform") || collision.CompareTag("PushPlatform"))
         {
             if(player.GetState()!=PlayerController.ClimbState.Instance)
             {
@@ -23,7 +23,7 @@ public class WallAttach : MonoBehaviour
     {
         if (collision.CompareTag("Aim")) return;
         if (player.GetState() == PlayerController.AttachState.Instance|| player.GetState() == PlayerController.MonAttachState.Instance|| player.GetState() == PlayerController.SpinState.Instance || player.GetState() == PlayerController.BossAttackState.Instance || player.GetState() == PlayerController.QTEState.Instance) return;
-        else if (collision.CompareTag("Attachable") || collision.CompareTag("Platform") )
+        else if (collision.CompareTag("Attachable") || collision.CompareTag("Platform") || collision.CompareTag("PushPlatform"))
         {
             player.SetState(PlayerController.AirState.Instance);
         }

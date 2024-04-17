@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class VFXManager : Singleton<VFXManager>
 {
@@ -11,6 +12,7 @@ public class VFXManager : Singleton<VFXManager>
     [SerializeField] PlayerController player;
     [SerializeField] private Transform[] VFXPos;
     private Dictionary<string, Transform> VFXPosDict;
+
 
     public Dictionary<string, Transform> GetVFXDict()
     {
@@ -59,7 +61,6 @@ public class VFXManager : Singleton<VFXManager>
 
         transform.rotation = Quaternion.identity;
     }
-
     public void PlayVFX(Vector2 position, string name)
     {
         pointPref.transform.position = position;
@@ -76,6 +77,24 @@ public class VFXManager : Singleton<VFXManager>
         pointPref.transform.rotation = Quaternion.Euler(0, 0, rotz);
         PlayVFX(position, name);
     }
+    public void PlayVFXNewInstance(Vector2 position, string name)
+    {
+        var obj = Instantiate(pointPref);
+        obj.transform.position = position;
+        var anim = obj.GetComponent<Animator>();
+        anim.Play(name);
+        
+    }
+    public void PlayVFXNewInstance(Vector2 position, Vector2 dest, string name)
+    {
+        var obj = Instantiate(pointPref);
+        obj.transform.position = position;
+        var anim = obj.GetComponent<Animator>();
+        float rotz = GetRotateZ(position, dest);
+        obj.transform.rotation = Quaternion.Euler(0, 0, rotz);
+        anim.Play(name);
+    }
+
 
     public float GetRotateZ(Vector2 orgPos, Vector2 destPos)
     {
@@ -85,12 +104,7 @@ public class VFXManager : Singleton<VFXManager>
         return rotZ;
     }
 
-    
+
 
     public void SetVFXBool(bool val) { }
-    //public void PlayVFX(Vector2 position, string name, int layer, float duration)
-    //{
-    //    pointPref.transform.position = position;
-    //    anim.Play(name, layer, duration);
-    //}
 }

@@ -17,6 +17,7 @@ TagManager:
   - DamageTile
   - DeadZone
   - Boss
+  - PushPlatform
   layers:
   - Default
   - TransparentFX
