@@ -232,6 +232,10 @@ public class PlayerController : MonoBehaviour
     {
         SetState(NormalState.Instance);
     }
+    public void OnBossAtk()
+    {
+        SFXManager.Instance.PlaySFX("excute", "aim");
+    }
     #endregion
 
     #region Coroutine
@@ -519,7 +523,7 @@ public class PlayerController : MonoBehaviour
         {
             float dist = Vector2.Distance(ancPos.position, player.transform.position) - rewindDist;
             player.transform.position = Vector2.MoveTowards(player.transform.position, ancPos.position, dist);
-            SFXManager.Instance.PlaySFX("chargeDash", "player");
+            SFXManager.Instance.PlaySFX("dash", "player");
             anchor.GetJoint().autoConfigureDistance = true;
         }
         public override void Enter()
@@ -902,16 +906,20 @@ public class PlayerController : MonoBehaviour
     {
         if (IsSpinning)
         {
-            if (collision.CompareTag("Platform")) return;
-            if ((collision.CompareTag("Monster") || collision.CompareTag("FlyingMonster") || collision.CompareTag("HeavyMonster")))
+            
+            if (collision.CompareTag("Monster") || collision.CompareTag("FlyingMonster") || collision.CompareTag("HeavyMonster")||collision.CompareTag("PushPlatform"))
             {
-                enemy = null;
-                collision.gameObject.SetActive(false);
+                if (!collision.CompareTag("PushPlatform"))
+                {
+                    enemy = null;
+                    collision.gameObject.SetActive(false);
+                    transform.position = collision.transform.position;
+                }
                 SetState(AirState.Instance);
+                anim.SetTrigger("Exit");
+                VFXManager.Instance.PlayVFX(collision.transform.position, "VFX_ExcuteEnd");
+                SFXManager.Instance.PlaySFX("chargeHit", "aim");
             }
-            anim.SetTrigger("Exit");
-            VFXManager.Instance.PlayVFX(collision.transform.position, "VFX_ExcuteEnd");
-            SFXManager.Instance.PlaySFX("chargeHit", "aim");
         }
 
         if (!isInvincible)

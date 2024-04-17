@@ -9,6 +9,10 @@ public class KangSeonController : MonoBehaviour
     PlayerController player;
     [SerializeField] KangSeonLaser laser;
     [SerializeField] BossManager bM;
+    AudioSource sfx;
+    [SerializeField] AudioClip atkClip;
+    [SerializeField] AudioClip evadeClip;
+    [SerializeField] AudioClip readyClip;
 
     public KangSeonLaser GetLaser() { return laser; }
 
@@ -17,6 +21,7 @@ public class KangSeonController : MonoBehaviour
 
     private void Awake()
     {
+        sfx = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         player = FindAnyObjectByType<PlayerController>();
         bM = FindAnyObjectByType<BossManager>();
@@ -46,17 +51,30 @@ public class KangSeonController : MonoBehaviour
 
     void OnDisappear()
     {
+        sfx.clip = evadeClip;
+        sfx.Play();
         bM.WaveCountUp();
         gameObject.SetActive(false);
     }
 
+    void OnDisappearSound()
+    {
+        sfx.clip = evadeClip;
+        sfx.Play();
+    }
+
     void OnShoot()
     {
+        sfx.clip = readyClip;
+        sfx.Play();
+
         laser.Shoot();
     }
 
     void OnShooting()
     {
+        sfx.clip = atkClip;
+        sfx.Play();
         laser.Shooting();
     }
 
