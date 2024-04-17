@@ -34,7 +34,7 @@ public class KangSeonLaser : MonoBehaviour
         lR.startWidth = 0.5f;
         lR.endWidth = 0.5f;
         lR.enabled = false;
-        laser.transform.localScale = new Vector3(80, 5, 1);
+        laser.transform.localScale = new Vector3(160, 5, 1);
 
         laser.gameObject.SetActive(false);
     }
