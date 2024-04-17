@@ -450,9 +450,11 @@ public class PlayerController : MonoBehaviour
             col.isTrigger = false;
             rb.gravityScale = targetGravity;
             cam.m_Lens.OrthographicSize = player.curSize;
-            anim.SetBool("Boss", false);
+            anim.Play("Idle");
             //anim.SetTrigger("ClashEnd");
             armSr.enabled = true;
+            armSr.flipX = false;
+            player.GetSR().flipX = false;
             hookLine.enabled = false;
             aimLine.enabled = true;
         }
@@ -779,6 +781,7 @@ public class PlayerController : MonoBehaviour
 
         public override void Enter()
         {
+            target = GetNearest();
 
             anim.Play("SNB_Spinning");
             Spin();
@@ -800,8 +803,12 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0.0f;
 
-            target = GetNearest();
-            if (target == null) { player.SetState(AirState.Instance); return; }
+            if (target == null) 
+            {
+                anim.Play("SNB_Fall");
+                player.SetState(AirState.Instance);
+                return;
+            }
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 time += Time.deltaTime;
@@ -810,7 +817,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (time < chargeTime)
                 {
-
+                    anim.Play("SNB_Fall");
                     player.SetState(AirState.Instance);
                     return;
                 }
