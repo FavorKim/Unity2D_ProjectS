@@ -45,56 +45,6 @@ public class PlayerController : MonoBehaviour
     protected Animator anim;
     protected Rigidbody2D rb;
     protected CapsuleCollider2D col;
-
-
-
-    [Space(20)]
-    [SerializeField] protected float moveForce = 45.0f;
-    [SerializeField] protected float jumpForce = 900.0f;
-    [SerializeField] public float MaxSpeed = 9.0f;
-    [SerializeField] public float targetMaxSpeed = 9.0f;
-    [SerializeField] protected float climbSpeed = 10.0f;
-    [SerializeField] protected float skyClimbSpeed = 10.0f;
-    [SerializeField] protected float targetGravity = 4.0f;
-    [SerializeField] protected float rewindDist = 0.5f;
-    [SerializeField] protected float rewindSpeed = 1.5f;
-    [SerializeField] protected float dashForce = 1.5f;
-    [SerializeField] protected float excuteMove = 0.3f;
-    [Header("About Dash")]
-    [SerializeField] protected float swingForce = 40.0f;
-    [SerializeField] protected float swingCooldown = 3.0f;
-    [SerializeField] protected float damagedDash = 5.0f;
-    protected float swingDashCool { get; set; }
-
-    [Space(20)]
-    [Header("About SpinAttack")]
-    [SerializeField] float spinSpeed = 10.0f;
-
-    public float GetTargetGrav() { return targetGravity; }
-
-    protected Vector2 moveVal;
-    protected Vector2 climbVal;
-
-    public int JumpCount { get; set; }
-
-
-    public void ResetDashCool() { swingDashCool = swingCooldown; }
-    public bool CanDash() { return swingDashCool == swingCooldown; }
-    public bool IsAttacking { get; set; }
-    public bool IsSpinning { get; set; }
-    public SpriteRenderer GetSR() { return sR; }
-    private PlayerState state;
-    public PlayerState GetState() { return state; }
-
-    protected int MaxHpCount = 4;
-    protected int CurHpCount = 4;
-    public int GetCurHp { get { return CurHpCount; } }
-
-    float curSize;
-    public bool isFreeze { get; set; }
-
-    bool isInvincible = false;
-
     #endregion
 
     #region Vector2
@@ -140,7 +90,7 @@ public class PlayerController : MonoBehaviour
     public int GetCurHp { get { return CurHpCount; } }
     #endregion
     #endregion
-    
+
     #region Methods
     #region State
     private PlayerState state;
@@ -611,7 +561,7 @@ public class PlayerController : MonoBehaviour
         public override void Enter()
         {
             mon = player.enemy.gameObject.GetComponent<MonsterShoot>();
-            VFXManager.Instance.GetManager().PlayVFX(player.transform.position, player.enemy.transform.position, "VFX_ExcuteDash");
+            VFXManager.Instance.PlayVFX(player.transform.position, player.enemy.transform.position, "VFX_ExcuteDash");
 
             if (mon.CompareTag("FlyingMonster"))
                 rb.gravityScale = 0.1f;
