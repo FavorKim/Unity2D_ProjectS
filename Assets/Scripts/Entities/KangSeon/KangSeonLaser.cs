@@ -41,14 +41,13 @@ public class KangSeonLaser : MonoBehaviour
     public void Ready()
     {
         lR.enabled = true;
-        StartCoroutine(CorAiming());
+        isShoot = true;
     }
 
     public void Shoot()
     {
         isShoot = true;
         pos = player.transform.position;
-        lR.SetPosition(1, pos);
     }
 
     public void Shooting()
@@ -63,23 +62,16 @@ public class KangSeonLaser : MonoBehaviour
 
     public void ShootEnd()
     {
+        isShoot = false;
         laser.SetActive(false);
     }
 
-    IEnumerator CorAiming()
-    {
-        while (true)
-        {
-            if (isShoot) break;
-            Debug.Log("Corouting");
-            pos = player.transform.position;
-            lR.SetPosition(1, pos);
-            yield return null;
-        }
-        isShoot = false;
-        StopCoroutine(CorAiming());
-    }
 
+    private void Update()
+    {
+        if (!isShoot) { pos = player.transform.position; }
+        lR.SetPosition(1, pos);
+    }
 
 
 

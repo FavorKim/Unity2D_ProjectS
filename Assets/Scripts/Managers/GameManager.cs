@@ -21,13 +21,15 @@ public class GameManager : Singleton<GameManager>
     public int GetRecoverMax() { return recoverMax; }
     public string difficulty = "";
     public string deadScene;
-    Texture2D cursor;
+    [SerializeField] Texture2D cursor;
 
 
+    private void Awake()
+    {
+        UnityEngine.Cursor.SetCursor(cursor, new Vector2(cursor.width / 2, cursor.height / 2), CursorMode.Auto);
+    }
     private void Start()
     {
-        cursor = (Texture2D)Resources.Load("Cursor");
-        UnityEngine.Cursor.SetCursor(cursor, new Vector2(cursor.width / 2, cursor.height / 2), CursorMode.Auto);
 
         DontDestroyOnLoad(this.gameObject);
 
