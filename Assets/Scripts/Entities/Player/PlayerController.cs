@@ -770,11 +770,12 @@ public class PlayerController : MonoBehaviour
         float chargeTime = 1.0f;
         Transform target;
         float time;
+        bool Check = false;
 
 
         public override void Move()
         {
-
+            
         }
         public override void Jump() { base.Jump(); player.SetState(AirState.Instance); }
 
@@ -786,7 +787,7 @@ public class PlayerController : MonoBehaviour
                 player.SetState(AirState.Instance);
                 return;
             }
-
+            Check = false;
             rb.gravityScale = 0.0f;
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0.0f;
@@ -811,6 +812,12 @@ public class PlayerController : MonoBehaviour
             while (true)
             {
                 yield return null;
+
+                if (time >= chargeTime && !Check)
+                {
+                    VFXManager.Instance.PlayVFX(player.transform.position, "VFX_SpinAtkCharged");
+                    Check = true;
+                }
 
                 if (Input.GetKey(KeyCode.LeftShift))
                 {

@@ -31,7 +31,6 @@ public class VFXManager : Singleton<VFXManager>
 
     private void Start()
     {
-        //if (Instance != null) Destroy(gameObject);
 
         pointPref = Instantiate(pointPref);
         anim = pointPref.GetComponent<Animator>();
