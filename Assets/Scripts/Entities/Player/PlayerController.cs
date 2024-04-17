@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour
 =======
     [Space(20)]
 >>>>>>> parent of a823ba9 (ver 0.7.4)
-
     [Header("About Dash")]
     [SerializeField] protected float swingForce = 40.0f;
     [SerializeField] protected float swingCooldown = 3.0f;
