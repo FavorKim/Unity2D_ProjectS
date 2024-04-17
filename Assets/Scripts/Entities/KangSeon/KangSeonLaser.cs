@@ -66,7 +66,18 @@ public class KangSeonLaser : MonoBehaviour
         laser.SetActive(false);
     }
 
-
+    {
+        while (true)
+        {
+            if (isShoot) break;
+            Debug.Log("Corouting");
+            pos = player.transform.position;
+            lR.SetPosition(1, pos);
+            yield return null;
+        }
+        isShoot = false;
+        StopCoroutine(CorAiming());
+    }
     private void Update()
     {
         if (!isShoot) { pos = player.transform.position; }
