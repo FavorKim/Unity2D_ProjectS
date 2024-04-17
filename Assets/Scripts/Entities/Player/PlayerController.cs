@@ -211,6 +211,7 @@ public class PlayerController : MonoBehaviour
             OnDead();
             return;
         }
+        SFXManager.Instance.PlaySFX("damaged", "player");
         StartCoroutine(InvincibleTime());
         SetState(AirState.Instance);
         rb.velocity = Vector2.zero;
@@ -322,20 +323,25 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.transform.gameObject == null) return;
             if (player.GetState() == QTEState.Instance) return;
-
+            SFXManager.Instance.PlaySFX("shoot", "arm");
             anim.SetBool("isAttach", true);
             if (hit.collider.CompareTag("Monster") || hit.collider.CompareTag("FlyingMonster"))
             {
+                SFXManager.Instance.PlaySFX("dash", "player");
                 player.enemy = hit.collider.gameObject;
                 player.SetState(MonAttachState.Instance);
             }
             else if (hit.collider.CompareTag("Boss"))
             {
+                SFXManager.Instance.PlaySFX("dash", "player");
                 player.enemy = hit.collider.gameObject;
                 player.SetState(BossAttackState.Instance);
             }
             else
                 player.SetState(AttachState.Instance);
+
+            SFXManager.Instance.PlaySFX("grab", "aim");
+
         }
     }
 
@@ -504,6 +510,7 @@ public class PlayerController : MonoBehaviour
                 Vector2 finalDir = dir + reverse;
                 rb.velocity = Vector2.zero;
                 rb.AddForce(finalDir * swingForce, ForceMode2D.Impulse);
+                SFXManager.Instance.PlaySFX("swingdash", "player");
                 rb.gravityScale = targetGravity;
 
             }
@@ -512,10 +519,12 @@ public class PlayerController : MonoBehaviour
         {
             float dist = Vector2.Distance(ancPos.position, player.transform.position) - rewindDist;
             player.transform.position = Vector2.MoveTowards(player.transform.position, ancPos.position, dist);
+            SFXManager.Instance.PlaySFX("chargeDash", "player");
             anchor.GetJoint().autoConfigureDistance = true;
         }
         public override void Enter()
         {
+            SFXManager.Instance.PlaySFX("rapeling", "arm");
             player.MaxSpeed += 3.0f;
             player.GetArm().SetBool("isAttach", true);
             anim.SetTrigger("WireShoot");
@@ -525,7 +534,7 @@ public class PlayerController : MonoBehaviour
         }
         public override void Exit()
         {
-
+            SFXManager.Instance.PlaySFX("returnArm", "arm");
             if (isSkilled)
             {
                 anim.Play("SNB_Rolling", 0, 1f);
@@ -586,6 +595,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.Play("SNB_Rolling", 0, 0.4f);
             VFXManager.Instance.PlayVFX(player.transform.position, "VFX_ExcuteEnd");
+            SFXManager.Instance.PlaySFX("excute", "aim");
             //anim.SetTrigger("Exit");
 
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -793,6 +803,7 @@ public class PlayerController : MonoBehaviour
             rb.angularVelocity = 0.0f;
 
             anim.Play("SNB_Spinning");
+            SFXManager.Instance.PlaySFX("chargeStart", "player");
             player.StartCoroutine(CorSpin());
 
             armSr.enabled = false;
@@ -816,6 +827,7 @@ public class PlayerController : MonoBehaviour
                 if (time >= chargeTime && !Check)
                 {
                     VFXManager.Instance.PlayVFX(player.transform.position, "VFX_SpinAtkCharged");
+                    SFXManager.Instance.PlaySFX("chargeComplete", "player");
                     Check = true;
                 }
 
@@ -890,6 +902,7 @@ public class PlayerController : MonoBehaviour
     {
         if (IsSpinning)
         {
+            if (collision.CompareTag("Platform")) return;
             if ((collision.CompareTag("Monster") || collision.CompareTag("FlyingMonster") || collision.CompareTag("HeavyMonster")))
             {
                 enemy = null;
@@ -898,6 +911,7 @@ public class PlayerController : MonoBehaviour
             }
             anim.SetTrigger("Exit");
             VFXManager.Instance.PlayVFX(collision.transform.position, "VFX_ExcuteEnd");
+            SFXManager.Instance.PlaySFX("chargeHit", "aim");
         }
 
         if (!isInvincible)

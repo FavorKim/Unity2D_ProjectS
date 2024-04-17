@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -71,7 +72,7 @@ public class SFXManager : Singleton<SFXManager>
         playerClips.Add("chargeStart", chargeStart);
         playerClips.Add("chargeloop", chargeloop);
         playerClips.Add("chargeComplete", chargeComplete);
-        playerClips.Add("Dash", Dash);
+        playerClips.Add("dash", Dash);
         playerClips.Add("damaged", damaged);
         playerClips.Add("jump", jump);
         playerClips.Add("swingdash", swingdash);
@@ -109,9 +110,15 @@ public class SFXManager : Singleton<SFXManager>
         dics.Add("ui", UIClips);
     }
 
+    
+
     public void PlaySFX(string clipName, string sourceName)
     {
-        sources[sourceName].clip = dics[sourceName][clipName];
+        AudioSource source = sources[sourceName];
+        AudioClip clip = dics[sourceName][clipName];
+
+        source.clip = clip;
+        source.Play();
     }
 
 }
