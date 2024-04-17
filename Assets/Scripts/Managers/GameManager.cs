@@ -21,6 +21,8 @@ public class GameManager : Singleton<GameManager>
     public string difficulty = "";
     public string deadScene;
 
+    
+
     Texture2D cursor;
 
 
