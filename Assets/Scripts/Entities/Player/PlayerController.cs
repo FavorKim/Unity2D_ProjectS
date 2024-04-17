@@ -235,6 +235,7 @@ public class PlayerController : MonoBehaviour
     public void OnBossAtk()
     {
         SFXManager.Instance.PlaySFX("excute", "aim");
+        VFXManager.Instance.PlayVFX(transform.position, "VFX_ExcuteEnd");
     }
     #endregion
 
@@ -338,6 +339,7 @@ public class PlayerController : MonoBehaviour
             else if (hit.collider.CompareTag("Boss"))
             {
                 SFXManager.Instance.PlaySFX("dash", "player");
+                VFXManager.Instance.PlayVFX(player.transform.position, "VFX_ExcuteStart");
                 player.enemy = hit.collider.gameObject;
                 player.SetState(BossAttackState.Instance);
             }
