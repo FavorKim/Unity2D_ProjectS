@@ -37,23 +37,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Space(20)]
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     [Header("About Move")]
->>>>>>> parent of a823ba9 (ver 0.7.4)
-=======
-    [Header("About Move")]
->>>>>>> parent of a823ba9 (ver 0.7.4)
-=======
-    [Header("About Move")]
->>>>>>> parent of a823ba9 (ver 0.7.4)
-=======
-    [Header("About Move")]
->>>>>>> parent of a823ba9 (ver 0.7.4)
     [SerializeField] protected float moveForce = 45.0f;
     [SerializeField] protected float jumpForce = 900.0f;
     [SerializeField] public float MaxSpeed = 9.0f;
@@ -65,22 +49,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected float rewindSpeed = 1.5f;
     [SerializeField] protected float dashForce = 1.5f;
     [SerializeField] protected float excuteMove = 0.3f;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    [Space(20)]
->>>>>>> parent of a823ba9 (ver 0.7.4)
-=======
-    [Space(20)]
->>>>>>> parent of a823ba9 (ver 0.7.4)
-=======
-    [Space(20)]
->>>>>>> parent of a823ba9 (ver 0.7.4)
-=======
-    [Space(20)]
->>>>>>> parent of a823ba9 (ver 0.7.4)
 
     [Header("About Dash")]
     [SerializeField] protected float swingForce = 40.0f;
