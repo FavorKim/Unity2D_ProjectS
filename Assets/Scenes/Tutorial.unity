@@ -5989,29 +5989,8 @@ MonoBehaviour:
   hp: {fileID: 1530350970}
   cam: {fileID: 1877002548}
   bM: {fileID: 0}
-  anchor: {fileID: 1873455188}
-  ancPos: {fileID: 1873455184}
-  aimLine: {fileID: 362189787}
-  hookLine: {fileID: 1277266182}
-  spinLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  arm: {fileID: 125293695}
-  moveForce: 45
-  jumpForce: 900
   MaxSpeed: 9
   targetMaxSpeed: 9
-  climbSpeed: 10
-  skyClimbSpeed: 10
-  targetGravity: 4
-  rewindDist: 1
-  rewindSpeed: 0.5
-  dashForce: 1.5
-  excuteMove: 4
-  swingForce: 45
-  swingCooldown: 4
-  damagedDash: 5
-  spinSpeed: 30
 --- !u!114 &881920885
 MonoBehaviour:
   m_ObjectHideFlags: 0

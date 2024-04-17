@@ -36,31 +36,25 @@ public class PlayerController : MonoBehaviour
     protected CapsuleCollider2D col;
 
 
-    [Space(20)]
 
-    [Header("About Move")]
-    [SerializeField] protected float moveForce = 45.0f;
-    [SerializeField] protected float jumpForce = 900.0f;
-    [SerializeField] public float MaxSpeed = 9.0f;
-    [SerializeField] public float targetMaxSpeed = 9.0f;
-    [SerializeField] protected float climbSpeed = 10.0f;
-    [SerializeField] protected float skyClimbSpeed = 10.0f;
-    [SerializeField] protected float targetGravity = 4.0f;
-    [SerializeField] protected float rewindDist = 0.5f;
-    [SerializeField] protected float rewindSpeed = 1.5f;
-    [SerializeField] protected float dashForce = 1.5f;
-    [SerializeField] protected float excuteMove = 0.3f;
-    [Space(20)]
+    protected float moveForce = 45.0f;
+    protected float jumpForce = 900.0f;
+    public float MaxSpeed = 9.0f;
+    public float targetMaxSpeed = 9.0f;
+    protected float climbSpeed = 10.0f;
+    protected float skyClimbSpeed = 10.0f;
+    protected float targetGravity = 4.0f;
+    protected float rewindDist = 0.5f;
+    protected float rewindSpeed = 1.5f;
+    protected float dashForce = 1.5f;
+    protected float excuteMove = 0.3f;
 
-    [Header("About Dash")]
-    [SerializeField] protected float swingForce = 40.0f;
-    [SerializeField] protected float swingCooldown = 3.0f;
-    [SerializeField] protected float damagedDash = 5.0f;
+    protected float swingForce = 40.0f;
+    protected float swingCooldown = 3.0f;
+    protected float damagedDash = 5.0f;
     protected float swingDashCool { get; set; }
 
-    [Space(20)]
-    [Header("About SpinAttack")]
-    [SerializeField] float spinSpeed = 10.0f;
+    float spinSpeed = 10.0f;
 
     public float GetTargetGrav() { return targetGravity; }
 
@@ -103,6 +97,7 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
         sR = GetComponent<SpriteRenderer>();
+       
         IsAttacking = false;
         IsSpinning = false;
         curSize = cam.m_Lens.OrthographicSize;
@@ -134,12 +129,12 @@ public class PlayerController : MonoBehaviour
         if (moveVal.x != 0)
         {
             anim.SetBool("isRun", true);
-            arm.SetBool("isRunning", true);
+            //arm.SetBool("isRunning", true);
         }
         else
         {
             anim.SetBool("isRun", false);
-            arm.SetBool("isRunning", false);
+            //arm.SetBool("isRunning", false);
         }
 
         if (moveVal.x < 0)
@@ -346,7 +341,7 @@ public class PlayerController : MonoBehaviour
             {
                 isQTE = true;
                 player.transform.position = new Vector2(KS.gameObject.transform.position.x, KS.gameObject.transform.position.y);
-                cam.m_Lens.OrthographicSize = 9f;
+                cam.m_Lens.OrthographicSize = 5f;
                 player.SetState(QTEState.Instance);
                 KS.EnterQTE();
                 isQTE = false;
@@ -356,7 +351,7 @@ public class PlayerController : MonoBehaviour
             player.GetAnimator().SetBool("Boss", true);
 
 
-            cam.m_Lens.OrthographicSize = 9f;
+            cam.m_Lens.OrthographicSize = 5f;
 
             if (bM.GetWave() > 0)
             {
