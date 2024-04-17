@@ -570,7 +570,7 @@ public class PlayerController : MonoBehaviour
             player.GetArm().SetBool("isExcute", true);
             anim.SetBool("isAttach", true);
             armSr.enabled = false;
-            VFXManager.Instance.PlayVFX(player.transform.position, mon.transform.position, "VFX_ExcuteDash");
+            VFXManager.Instance.PlayVFX(mon.transform.position, player.transform.position, "VFX_ExcuteDash");
 
             player.transform.position = mon.transform.position;
             mon.SetAttach(true);
@@ -828,8 +828,6 @@ public class PlayerController : MonoBehaviour
                     player.StartCoroutine(ITrace());
                 }
                 time = 0.0f;
-
-
             }
 
         }
