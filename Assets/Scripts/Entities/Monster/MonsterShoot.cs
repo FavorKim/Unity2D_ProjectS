@@ -127,7 +127,7 @@ public class MonsterShoot : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
             Shoot();
             shotCount++;
-            if (shotCount >= 10) break;
+            if (shotCount >= 10 || !gameObject.activeSelf) break;
         }
         StopCoroutine(CorMultiShot());
     }
