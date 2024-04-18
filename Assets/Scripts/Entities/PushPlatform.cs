@@ -29,7 +29,7 @@ public class PushPlatform : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (rb.velocity.magnitude < 0.4f)
             move = false;

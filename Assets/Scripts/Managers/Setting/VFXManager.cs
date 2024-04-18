@@ -51,6 +51,7 @@ public class VFXManager : Singleton<VFXManager>
 
     public void PlayVFX(string name)
     {
+        pointPref.transform.rotation = Quaternion.identity;
         if (player.GetSR().flipX == true)
             transform.Rotate(0, 90, 0);
         pointPref.transform.SetParent(VFXPosDict[name]);
@@ -62,19 +63,21 @@ public class VFXManager : Singleton<VFXManager>
     }
     public void PlayVFX(Vector2 position, string name)
     {
+        pointPref.transform.rotation = Quaternion.identity;
         pointPref.transform.position = position;
         anim.Play(name);
     }
     public void PlayVFX(Vector2 position, string name, float duration)
     {
+        pointPref.transform.rotation = Quaternion.identity;
         pointPref.transform.position = position;
         anim.Play(name,0, duration);
     }
     public void PlayVFX(Vector2 position, Vector2 dest, string name)
     {
         float rotz = GetRotateZ(position, dest);
-        pointPref.transform.rotation = Quaternion.Euler(0, 0, rotz);
         PlayVFX(position, name);
+        pointPref.transform.rotation = Quaternion.Euler(0, 0, rotz);
     }
     public void PlayVFXNewInstance(Vector2 position, string name)
     {

@@ -833,6 +833,8 @@ public class PlayerController : MonoBehaviour
 
             anim.Play("SNB_Spinning");
             SFXManager.Instance.PlaySFX("chargeStart", "player");
+            VFXManager.Instance.PlayVFX(target.position, "VFX_ChargeAppear");
+
             player.StartCoroutine(CorSpin());
 
             armSr.enabled = false;
