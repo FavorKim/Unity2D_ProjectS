@@ -86,6 +86,8 @@ public class MonsterShoot : MonoBehaviour
         float dist = (player.transform.position - transform.position).magnitude;
         if (dist < detectRange && !isAttached)
             aimDuration += Time.deltaTime;
+        else
+            aimDuration = 0f;
     }
 
     private void Attack()
@@ -109,8 +111,8 @@ public class MonsterShoot : MonoBehaviour
         Vector2 newPos = player.transform.position - obj.transform.position;
         float rotZ = Mathf.Atan2(newPos.y, newPos.x) * Mathf.Rad2Deg;
         obj.transform.rotation = Quaternion.Euler(0, 0, rotZ);
-
         obj.SetActive(true);
+        aimDuration = 0f;
     }
     
     void MultiShot()

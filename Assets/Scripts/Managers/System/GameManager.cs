@@ -51,7 +51,10 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (menu.activeSelf)
+            {
+                SFXManager.Instance.PlaySFX("cancel", "ui");
                 menu.SetActive(false);
+            }
             else if (SceneManager.GetActiveScene().name != "MainScene" && SceneManager.GetActiveScene().name != "Dead")
                 OpenMenu();
         }
@@ -59,6 +62,7 @@ public class GameManager : Singleton<GameManager>
 
     public void OpenMenu()
     {
+        SFXManager.Instance.PlaySFX("select", "ui");
         menu.SetActive(true);
     }
 
