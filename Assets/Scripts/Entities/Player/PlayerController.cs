@@ -521,21 +521,23 @@ public class PlayerController : MonoBehaviour
         {
             if (player.CanDash())
             {
+                Vector2 dir;
+
+                if (moveVal.x < 0) dir = player.transform.TransformDirection(Vector2.left);
+                else if (moveVal.x > 0) dir = player.transform.TransformDirection(Vector2.right);
+                else return;
+
                 rb.gravityScale = 0f;
                 isSkilled = true;
                 player.swingDashCool = 0.0f;
-                Vector2 dir;
 
-                if (Input.GetKey(KeyCode.A)) dir = player.transform.TransformDirection(Vector2.left);
-                else if (Input.GetKey(KeyCode.D)) dir = player.transform.TransformDirection(Vector2.right);
-                else dir = Vector2.zero;
-                
+
                 Vector2 reverse = (ancPos.position - player.transform.position).normalized * -2f;
                 Vector2 finalDir = dir + reverse;
                 rb.velocity = Vector2.zero;
-                
+
                 rb.AddForce(finalDir * swingForce, ForceMode2D.Impulse);
-                
+
 
                 SFXManager.Instance.PlaySFX("swingdash", "player");
                 rb.gravityScale = targetGravity;
