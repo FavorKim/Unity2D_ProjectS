@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     protected float skyClimbSpeed = 10.0f;
     protected float targetGravity = 4.0f;
     protected float rewindDist = 1f;
-    protected float rewindSpeed = 0.5f;
+    protected float rewindSpeed = 200.0f;
     protected float dashForce = 1.5f;
     protected float excuteMove = 4f;
     protected float swingForce = 45.0f;
@@ -545,8 +545,7 @@ public class PlayerController : MonoBehaviour
         }
         public override void Jump()
         {
-            float dist = Vector2.Distance(ancPos.position, player.transform.position) - rewindDist;
-            player.transform.position = Vector2.MoveTowards(player.transform.position, ancPos.position, dist);
+            rb.AddForce((ancPos.position - player.transform.position).normalized * rewindSpeed, ForceMode2D.Impulse);
             SFXManager.Instance.PlaySFX("dash", "player");
             anchor.GetJoint().autoConfigureDistance = true;
         }

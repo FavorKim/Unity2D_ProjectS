@@ -6097,6 +6097,7 @@ MonoBehaviour:
   armSr: {fileID: 125293694}
   MaxSpeed: 9
   targetMaxSpeed: 9
+  rewindSpeed: 200
 --- !u!114 &881920885
 MonoBehaviour:
   m_ObjectHideFlags: 0
