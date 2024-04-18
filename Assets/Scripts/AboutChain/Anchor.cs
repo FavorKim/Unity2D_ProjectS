@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
@@ -56,6 +57,7 @@ public class Anchor : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (PlayerController.isFreeze) return;
         DrawAim();
 
     }

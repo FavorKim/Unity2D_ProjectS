@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
     #region bool
     public bool IsAttacking { get; set; }
     public bool IsSpinning { get; set; }
-    public bool isFreeze { get; set; }
+    public static bool isFreeze { get; set; }
     bool isInvincible = false;
     #endregion
     #region getter
@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour
 
     void SetAnim()
     {
+        if (isFreeze) return;
         if (rb.velocity.y < -20f)
             anim.SetBool("isFall", true);
         else
@@ -150,7 +151,7 @@ public class PlayerController : MonoBehaviour
 
     public void ResetDashCool() { swingDashCool = swingCooldown; }
     public bool CanDash() { return swingDashCool == swingCooldown; }
-
+    public void SetFreeze(bool val) { isFreeze = val; }
     #endregion
 
     #region LifeCycle
@@ -303,7 +304,7 @@ public class PlayerController : MonoBehaviour
 
         public virtual void Move()
         {
-            if (player.isFreeze == true) return;
+            if (PlayerController.isFreeze == true) return;
             rb.AddForce(moveVal * moveForce * Time.deltaTime, ForceMode2D.Impulse);
 
             if (rb.velocity.x > player.MaxSpeed)
@@ -313,7 +314,7 @@ public class PlayerController : MonoBehaviour
         }
         public virtual void Jump()
         {
-            if (player.isFreeze == true) return;
+            if (PlayerController.isFreeze == true) return;
 
             if (player.JumpCount < 1)
             {
@@ -324,7 +325,7 @@ public class PlayerController : MonoBehaviour
         }
         public virtual void Skill()
         {
-            if (player.isFreeze == true) return;
+            if (PlayerController.isFreeze == true) return;
         }
 
         public virtual void Enter() { }
@@ -927,6 +928,8 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    //public class Freeze
     #endregion
 
     #region Collision

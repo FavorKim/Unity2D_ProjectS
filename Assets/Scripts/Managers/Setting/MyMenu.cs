@@ -16,10 +16,12 @@ public class MyMenu : Singleton<MyMenu>
     }
     private void OnEnable()
     {
+        PlayerController.isFreeze = true;
         Time.timeScale = 0f;
     }
     private void OnDisable()
     {
+        PlayerController.isFreeze = false;
         Time.timeScale = 1f;
     }
     public void OnExit()
