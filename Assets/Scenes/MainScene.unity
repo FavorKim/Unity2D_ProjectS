@@ -4921,7 +4921,7 @@ MonoBehaviour:
   targetGO: {fileID: 0}
   tweenTargetIsTargetGO: 1
   delay: 0
-  duration: 10
+  duration: 6
   easeType: 37
   easeCurve:
     serializedVersion: 2
@@ -5008,7 +5008,7 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 4.254482
+      time: 4
       value: 0
       inSlope: -0.011665551
       outSlope: -0.011665551
@@ -5017,16 +5017,16 @@ MonoBehaviour:
       inWeight: 1
       outWeight: 1
     - serializedVersion: 3
-      time: 5.1680546
-      value: 0.6258507
-      inSlope: 0.007933667
-      outSlope: 0.007933667
+      time: 4.1347294
+      value: 0.6116905
+      inSlope: -0.00043563402
+      outSlope: -0.00043563402
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.5101671
       outWeight: 1
     - serializedVersion: 3
-      time: 5.9421105
+      time: 5
       value: 0
       inSlope: 0.01237903
       outSlope: 0.01237903
@@ -5035,7 +5035,7 @@ MonoBehaviour:
       inWeight: 0.34498212
       outWeight: 0.46464735
     - serializedVersion: 3
-      time: 8
+      time: 6.100006
       value: 1
       inSlope: 0
       outSlope: 0

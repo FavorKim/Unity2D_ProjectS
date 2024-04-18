@@ -11,6 +11,7 @@ public class MonsterShoot : MonoBehaviour
     CircleCollider2D circle;
     Rigidbody2D rb;
     LineRenderer lR;
+    AudioSource audioSource;
     //GameObject bulletPref;
 
     //[SerializeField] float moveSpeed = 1.5f;
@@ -31,6 +32,8 @@ public class MonsterShoot : MonoBehaviour
         col = GetComponent<CapsuleCollider2D>();
         circle = GetComponent<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
 
         lR = GetComponent<LineRenderer>();
 
@@ -41,6 +44,7 @@ public class MonsterShoot : MonoBehaviour
 
     private void OnEnable()
     {
+        lR.enabled = false;
         isAttached = false;
         col.isTrigger = false;
     }
@@ -56,7 +60,7 @@ public class MonsterShoot : MonoBehaviour
             if (gameObject.CompareTag("FlyingMonster"))
                 rb.gravityScale = 0f;
 
-            anim.Play("mon_Idle");
+            //anim.Play("mon_Idle");
             transform.SetParent(player.transform, false);
             transform.localPosition = Vector3.zero;
 
@@ -68,6 +72,7 @@ public class MonsterShoot : MonoBehaviour
     private void Update()
     {
         //moveTime += Time.deltaTime;
+
         lR.SetPosition(0, transform.position);
         lR.SetPosition(1, player.transform.position);
         OnAttach();
@@ -87,14 +92,7 @@ public class MonsterShoot : MonoBehaviour
     {
         float dist = (player.transform.position - transform.position).magnitude;
         if (dist < detectRange)
-        {
             aimDuration += Time.deltaTime;
-            lR.enabled = true;
-        }
-        else
-        {
-            lR.enabled = false;
-        }
     }
 
     private void Attack()
@@ -103,12 +101,15 @@ public class MonsterShoot : MonoBehaviour
         if (aimDuration >= atkTime)
         {
             aimDuration = 0f;
+            lR.enabled = true;
             anim.SetTrigger("Ready");
+            audioSource.Play();
         }
     }
 
     void Shoot()
     {
+        lR.enabled = false;
         var obj = BulletPoolManager.Instance.Dequeue();
         obj.transform.position = base.transform.position;
         Vector2 newPos = player.transform.position - obj.transform.position;

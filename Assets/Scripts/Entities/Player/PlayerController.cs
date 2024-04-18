@@ -161,14 +161,15 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
         sR = GetComponent<SpriteRenderer>();
+
         IsAttacking = false;
         IsSpinning = false;
+
         curSize = cam.m_Lens.OrthographicSize;
 
 
         StartCoroutine(DashCool());
 
-        UnityEngine.Debug.Log(GameManager.Instance.difficulty);
     }
     private void FixedUpdate()
     {
@@ -211,15 +212,20 @@ public class PlayerController : MonoBehaviour
             OnDead();
             return;
         }
+
         SFXManager.Instance.PlaySFX("damaged", "player");
+
         StartCoroutine(InvincibleTime());
+
         SetState(AirState.Instance);
+
         rb.velocity = Vector2.zero;
         if (GameManager.Instance.difficulty != "easy")
         {
             CurHpCount--;
             hp.OnDamaged();
         }
+
         Vector2 dir = new Vector2(-1, 1);
         rb.AddForce(dir * damagedDash * Time.deltaTime, ForceMode2D.Impulse);
     }
@@ -328,8 +334,10 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.transform.gameObject == null) return;
             if (player.GetState() == QTEState.Instance) return;
+
             SFXManager.Instance.PlaySFX("shoot", "arm");
             anim.SetBool("isAttach", true);
+
             if (hit.collider.CompareTag("Monster") || hit.collider.CompareTag("FlyingMonster"))
             {
                 SFXManager.Instance.PlaySFX("dash", "player");
@@ -370,8 +378,10 @@ public class PlayerController : MonoBehaviour
         void BossAttack()
         {
             KS = player.enemy.GetComponent<KangSeonController>();
+
             KS.GetLaser().SetLaserOff();
             KS.GetLaser().GetLaser().SetActive(false);
+
             cam.m_Lens.OrthographicSize = 5f;
 
             if (bM.GetWave() % 3 == 0 && bM.GetWave() != 0)
@@ -390,14 +400,14 @@ public class PlayerController : MonoBehaviour
 
             if (bM.GetWave() > 0)
             {
-                player.GetSR().flipX = true;
                 player.transform.position = new Vector2(KS.gameObject.transform.position.x + 2f, KS.gameObject.transform.position.y);
+
+                player.GetSR().flipX = true;
                 player.GetAnimator().Play("SNB_KS_Attack");
                 KS.GetAnimator().Play("KangSeon_Attacked");
             }
             else
             {
-                //player.transform = new Vector2()
                 player.GetSR().flipX = false;
 
                 player.transform.position = new Vector2(KS.gameObject.transform.position.x + 2f, KS.gameObject.transform.position.y);
@@ -412,10 +422,13 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             rb.gravityScale = 0f;
+
             col.isTrigger = true;
+
             armSr.enabled = false;
             hookLine.enabled = false;
             aimLine.enabled = false;
+
             BossAttack();
         }
 
@@ -425,8 +438,11 @@ public class PlayerController : MonoBehaviour
 
             col.isTrigger = false;
             rb.gravityScale = targetGravity;
+
             cam.m_Lens.OrthographicSize = player.curSize;
+
             anim.SetBool("Boss", false);
+
             armSr.enabled = true;
             hookLine.enabled = false;
             aimLine.enabled = true;
@@ -461,12 +477,14 @@ public class PlayerController : MonoBehaviour
         {
             col.isTrigger = false;
             rb.gravityScale = targetGravity;
+
             cam.m_Lens.OrthographicSize = player.curSize;
+
             anim.Play("Idle");
-            //anim.SetTrigger("ClashEnd");
-            armSr.enabled = true;
             armSr.flipX = false;
             player.GetSR().flipX = false;
+
+            armSr.enabled = true;
             hookLine.enabled = false;
             aimLine.enabled = true;
         }
@@ -495,11 +513,9 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 newPos = ancPos.position - player.transform.position;
             float rotZ = Mathf.Atan2(newPos.y, newPos.x) * Mathf.Rad2Deg;
-
             player.transform.rotation = Quaternion.Euler(0, 0, rotZ - 90f);
 
             rb.AddForce(player.transform.TransformDirection(moveVal) * moveForce * 0.4f * Time.deltaTime, ForceMode2D.Impulse);
-
         }
         public override void Skill()
         {
@@ -509,17 +525,23 @@ public class PlayerController : MonoBehaviour
                 isSkilled = true;
                 player.swingDashCool = 0.0f;
                 Vector2 dir;
+
                 if (Input.GetKey(KeyCode.A)) dir = player.transform.TransformDirection(Vector2.left);
                 else if (Input.GetKey(KeyCode.D)) dir = player.transform.TransformDirection(Vector2.right);
                 else dir = Vector2.zero;
-                Vector2 reverse = (ancPos.position - player.transform.position).normalized * -9.8f;
+                
+                Vector2 reverse = (ancPos.position - player.transform.position).normalized * -2f;
                 Vector2 finalDir = dir + reverse;
                 rb.velocity = Vector2.zero;
+                
                 rb.AddForce(finalDir * swingForce, ForceMode2D.Impulse);
+                
+
                 SFXManager.Instance.PlaySFX("swingdash", "player");
                 rb.gravityScale = targetGravity;
 
             }
+
         }
         public override void Jump()
         {
