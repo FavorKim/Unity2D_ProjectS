@@ -61,7 +61,7 @@ public class MonsterShoot : MonoBehaviour
                 rb.gravityScale = 0f;
 
             //anim.Play("mon_Idle");
-            transform.SetParent(player.transform, false);
+            transform.SetParent(player.transform, true);
             transform.localPosition = Vector3.zero;
 
             //rb.velocity = Vector2.zero;
