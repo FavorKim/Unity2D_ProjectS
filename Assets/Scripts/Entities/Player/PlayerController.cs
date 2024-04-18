@@ -908,7 +908,6 @@ public class PlayerController : MonoBehaviour
     {
         if (IsSpinning)
         {
-            
             if (collision.CompareTag("Monster") || collision.CompareTag("FlyingMonster") || collision.CompareTag("HeavyMonster")||collision.CompareTag("PushPlatform"))
             {
                 if (!collision.CompareTag("PushPlatform"))
@@ -917,7 +916,6 @@ public class PlayerController : MonoBehaviour
                     collision.gameObject.SetActive(false);
                     transform.position = collision.transform.position;
                 }
-                SetState(AirState.Instance);
                 anim.SetTrigger("Exit");
                 VFXManager.Instance.PlayVFX(collision.transform.position, "VFX_ExcuteEnd");
                 SFXManager.Instance.PlaySFX("chargeHit", "aim");

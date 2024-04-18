@@ -19,7 +19,9 @@ public class MySlider : MonoBehaviour
     private void Update()
     {
         //tMPUGUI.text = ;
-        tMP.text = slider.value.ToString("0") + "%";
+        string curVal = ((slider.value/slider.maxValue)*100).ToString("0") + "%";
+        tMP.text = curVal;//slider.value.ToString("0") + "%";
+
     }
 
     public void OnChangeValue()
