@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue val)
     {
         moveVal = val.Get<Vector2>();
-        if (state == NormalState.Instance && !val.isPressed)
+        if (state == NormalState.Instance && val != null)
             rb.velocity = new Vector2(0, rb.velocity.y);
     }
     void OnJump(InputValue val)
