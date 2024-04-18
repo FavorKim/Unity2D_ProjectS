@@ -784,6 +784,7 @@ public class PlayerController : MonoBehaviour
         public override void Jump() { base.Jump(); }
         public override void Skill()
         {
+            if (isFreeze) return;
             if (Input.GetKey(KeyCode.LeftShift))
                 player.SetState(SpinState.Instance);
         }

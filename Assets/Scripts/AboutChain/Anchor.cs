@@ -73,6 +73,7 @@ public class Anchor : MonoBehaviour
 
     private void Aim()
     {
+
         if (hit == false || hit.collider.CompareTag("CantAttach")||hit.collider.CompareTag("HeavyMonster")|| hit.collider.CompareTag("DamageTile"))
         {
             canShoot = false;
@@ -84,6 +85,7 @@ public class Anchor : MonoBehaviour
     }
     private void Shoot()
     {
+        if (PlayerController.isFreeze) return;
         if (canShoot)
         {
             if (hit.collider.CompareTag("Monster") || hit.collider.CompareTag("FlyingMonster") || hit.collider.CompareTag("Boss"))
@@ -143,6 +145,7 @@ public class Anchor : MonoBehaviour
         while (true)
         {
             yield return null;
+            
 
             if (Input.GetMouseButtonUp(0))
             {
