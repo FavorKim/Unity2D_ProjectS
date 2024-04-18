@@ -28,7 +28,7 @@ public class BulletPoolManager : MonoBehaviour
 
             instance = this;
             queue = new Queue<GameObject>();
-            Spawn(10);
+            Spawn(30);
             DontDestroyOnLoad(gameObject);
         }
         else

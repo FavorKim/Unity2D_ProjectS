@@ -112,6 +112,24 @@ public class MonsterShoot : MonoBehaviour
 
         obj.SetActive(true);
     }
+    
+    void MultiShot()
+    {
+        StartCoroutine(CorMultiShot());
+    }
 
+    IEnumerator CorMultiShot()
+    {
+        int shotCount = 0;
+
+        while (true)
+        {
+            yield return new WaitForSeconds(0.05f);
+            Shoot();
+            shotCount++;
+            if (shotCount >= 10) break;
+        }
+        StopCoroutine(CorMultiShot());
+    }
 
 }
