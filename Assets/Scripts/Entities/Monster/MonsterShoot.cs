@@ -6,18 +6,15 @@ public class MonsterShoot : MonoBehaviour
 {
     [SerializeField] protected PlayerController player;
     [SerializeField] protected Animator anim;
-    //[SerializeField] protected GameObject playerObj;
     [SerializeField]CapsuleCollider2D col;
     CircleCollider2D circle;
     Rigidbody2D rb;
     LineRenderer lR;
     AudioSource audioSource;
-    //GameObject bulletPref;
 
-    //[SerializeField] float moveSpeed = 1.5f;
     [SerializeField] float detectRange = 20.0f;
     [SerializeField] float atkTime = 3.0f;
-    [SerializeField] float size = 0.5f;
+    float size = 1.0f;
     float aimDuration = 0f;
 
     bool isAttached = false;
@@ -60,19 +57,15 @@ public class MonsterShoot : MonoBehaviour
             if (gameObject.CompareTag("FlyingMonster"))
                 rb.gravityScale = 0f;
 
-            //anim.Play("mon_Idle");
             transform.SetParent(player.transform, true);
             transform.localPosition = Vector3.zero;
 
-            //rb.velocity = Vector2.zero;
         }
     }
 
 
     private void Update()
     {
-        //moveTime += Time.deltaTime;
-
         lR.SetPosition(0, transform.position);
         lR.SetPosition(1, player.transform.position);
         OnAttach();
@@ -91,7 +84,7 @@ public class MonsterShoot : MonoBehaviour
     private void Aim()
     {
         float dist = (player.transform.position - transform.position).magnitude;
-        if (dist < detectRange)
+        if (dist < detectRange && !isAttached)
             aimDuration += Time.deltaTime;
     }
 
@@ -109,6 +102,7 @@ public class MonsterShoot : MonoBehaviour
 
     void Shoot()
     {
+        if (isAttached) return;
         lR.enabled = false;
         var obj = BulletPoolManager.Instance.Dequeue();
         obj.transform.position = base.transform.position;
