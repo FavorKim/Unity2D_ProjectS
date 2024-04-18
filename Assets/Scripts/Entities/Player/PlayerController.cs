@@ -152,7 +152,7 @@ public class PlayerController : MonoBehaviour
     public bool CanDash() { return swingDashCool == swingCooldown; }
 
     #endregion
-    
+
     #region LifeCycle
     private void Awake()
     {
@@ -454,7 +454,7 @@ public class PlayerController : MonoBehaviour
         {
             player.anim.Play("SNB_Clash_Start");
             player.GetSR().flipX = true;
-            
+
             bM.EnterQTE();
         }
         public override void Exit()
@@ -476,7 +476,7 @@ public class PlayerController : MonoBehaviour
         public override void Jump() { }
         public override void Skill() { }
     }
-    
+
     public class AttachState : PlayerState
     {
         public AttachState(PlayerController player) : base(player) { }
@@ -791,7 +791,7 @@ public class PlayerController : MonoBehaviour
 
         public override void Move()
         {
-            
+
         }
         public override void Jump() { base.Jump(); player.SetState(AirState.Instance); }
 
@@ -816,6 +816,7 @@ public class PlayerController : MonoBehaviour
         }
         public override void Exit()
         {
+            time = 0;
             rb.gravityScale = targetGravity;
             player.StopCoroutine(ITrace());
             player.StopCoroutine(CorSpin());
@@ -858,14 +859,14 @@ public class PlayerController : MonoBehaviour
                         anim.SetTrigger("SpinEnd");
                         player.IsSpinning = true;
                         player.StartCoroutine(ITrace());
-                    time = 0.0f;
+                        time = 0.0f;
                         break;
                     }
 
 
                 }
             }
-            
+
 
         }
 
@@ -908,13 +909,15 @@ public class PlayerController : MonoBehaviour
     {
         if (IsSpinning)
         {
-            if (collision.CompareTag("Monster") || collision.CompareTag("FlyingMonster") || collision.CompareTag("HeavyMonster")||collision.CompareTag("PushPlatform"))
+            if (collision.CompareTag("Monster") || collision.CompareTag("FlyingMonster") || collision.CompareTag("HeavyMonster") || collision.CompareTag("PushPlatform"))
             {
                 if (!collision.CompareTag("PushPlatform"))
                 {
                     enemy = null;
                     collision.gameObject.SetActive(false);
                     transform.position = collision.transform.position;
+                    IsSpinning = false;
+                    SetState(AirState.Instance);
                 }
                 anim.SetTrigger("Exit");
                 VFXManager.Instance.PlayVFX(collision.transform.position, "VFX_ExcuteEnd");

@@ -10,7 +10,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] protected int wave = 3;
     [SerializeField] protected Animator[] wallAnim;
     [SerializeField] protected BoxCollider2D[] wallCol;
-
+    BoxCollider2D col ;
 
     protected GameObject[] obj;
 
@@ -20,8 +20,8 @@ public class BattleManager : MonoBehaviour
     {
         
         obj = new GameObject[enemies.Length];
-
-        for(int i = 0; i < walls.Length; i++)
+        col = GetComponent<BoxCollider2D>();
+        for (int i = 0; i < walls.Length; i++)
         {
             wallCol[i] = walls[i].GetComponent<BoxCollider2D>();
             wallCol[i].enabled = false;
@@ -40,7 +40,7 @@ public class BattleManager : MonoBehaviour
 
     protected virtual void OnEnter()
     {
-
+        SFXManager.Instance.PlaySFX("close", "gate");
     }
 
     protected void Enter()
@@ -51,8 +51,9 @@ public class BattleManager : MonoBehaviour
             wall.SetTrigger("Close");
 
         OnEnter();
-
+        
         StartCoroutine(CorWave());
+        col.enabled = false;
     }
 
     protected virtual void Spawn()
@@ -85,28 +86,31 @@ public class BattleManager : MonoBehaviour
             if (isOver && wave >= 0)
                 Spawn();
         }
+        WaveEnd();
+        StopCoroutine(CorWave());
     }
 
     protected void WaveEnd()
     {
-        for(int i = 0; i < walls.Length; i++)
+        SFXManager.Instance.PlaySFX("open", "gate");
+        for (int i = 0; i < walls.Length; i++)
         {
             wallAnim[i].SetTrigger("Open");
             wallCol[i].enabled = false;
             //walls[i].SetActive(false); 
         }
-
     }
-
+    /*
     protected void Update()
     {
         if (wave < 0)
         {
-            StopCoroutine(CorWave());
-            WaveEnd();
+    
+        WaveEnd();
+        StopCoroutine(CorWave());
         }
     }
-
+    */
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

@@ -35,7 +35,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &6617353810633381957
 LineRenderer:
-  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,20 +122,16 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
-  m_MaskInteraction: 0
   m_UseWorldSpace: 1
   m_Loop: 0
-  m_ApplyActiveColorSpace: 0
 --- !u!114 &6617353810633381956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,25 +247,6 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -312,9 +288,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laser: {fileID: 6617353810633381956}
   bM: {fileID: 0}
-  atkClip: {fileID: 8300000, guid: f81537fc1ff4ecf4a9168d2006173e5d, type: 3}
+  atkClip: {fileID: 8300000, guid: 9181bc42096210f4c9538cc931accdc7, type: 3}
   evadeClip: {fileID: 8300000, guid: 73116a9ae4764a8439ae5b01230b9021, type: 3}
-  readyClip: {fileID: 8300000, guid: f1f6e3e52ea4f114e959c5381637f6bd, type: 3}
+  readyClip: {fileID: 8300000, guid: 3f6a6e1a5015d8c45af603789548966b, type: 3}
+  smokeBtn: {fileID: 8300000, guid: 7b18e1c849ca283439a00926ec179e0f, type: 3}
+  smoke: {fileID: 8300000, guid: 7d89d63ca17f2f741b4cab9ae3088c3d, type: 3}
+  hit: {fileID: 8300000, guid: 8de0f1d78815399439d562576dd34ea6, type: 3}
+  drag: {fileID: 8300000, guid: 35ac189f828964a42bcb1c01ff2b34c6, type: 3}
+  cut: {fileID: 8300000, guid: bf9c2fea45695bf419b85c63e754cc56, type: 3}
   atkCool: 3
 --- !u!58 &571480287249137210
 CircleCollider2D:
@@ -326,25 +307,6 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0

@@ -108,6 +108,7 @@ public class SFXManager : Singleton<SFXManager>
         dics.Add("arm", armClips);
         dics.Add("aim", aimClips);
         dics.Add("ui", UIClips);
+        dics.Add("gate",gateClips);
     }
 
     

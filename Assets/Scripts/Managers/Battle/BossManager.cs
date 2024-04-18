@@ -29,6 +29,7 @@ public class BossManager : BattleManager
 
     protected override void OnEnter()
     {
+        base.OnEnter();
         bgm.gameObject.SetActive(true);
     }
 

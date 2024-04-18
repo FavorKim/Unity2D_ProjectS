@@ -13,6 +13,11 @@ public class KangSeonController : MonoBehaviour
     [SerializeField] AudioClip atkClip;
     [SerializeField] AudioClip evadeClip;
     [SerializeField] AudioClip readyClip;
+    [SerializeField] AudioClip smokeBtn;
+    [SerializeField] AudioClip smoke;
+    [SerializeField] AudioClip hit;
+    [SerializeField] AudioClip drag;
+    [SerializeField] AudioClip cut;
 
     public KangSeonLaser GetLaser() { return laser; }
 
@@ -51,17 +56,11 @@ public class KangSeonController : MonoBehaviour
 
     void OnDisappear()
     {
-        sfx.clip = evadeClip;
-        sfx.Play();
         bM.WaveCountUp();
         gameObject.SetActive(false);
     }
 
-    void OnDisappearSound()
-    {
-        sfx.clip = evadeClip;
-        sfx.Play();
-    }
+    
 
     void OnShoot()
     {
@@ -96,5 +95,36 @@ public class KangSeonController : MonoBehaviour
 
     }
 
-    
+    void OnDisappearSound()
+    {
+        sfx.clip = evadeClip;
+        sfx.Play();
+    }
+    void SmokeShellBtn()
+    {
+        sfx.clip = smokeBtn;
+        sfx.Play();
+    }
+    void Smoke()
+    {
+        sfx.clip = smoke;
+        sfx.Play();
+    }
+
+    void OnHitted()
+    {
+        sfx.clip = hit;
+        sfx.Play();
+    }
+    void OnDrag()
+    {
+        sfx.clip = drag;
+        sfx.Play();
+    }
+    void OnCut()
+    {
+        sfx.clip = cut;
+        sfx.Play();
+    }
+
 }
