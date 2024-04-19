@@ -65,6 +65,7 @@ public class GameManager : Singleton<GameManager>
         SetAim();
         SetResolution(DataManager.Instance.data.resolution);
         Screen.fullScreen = DataManager.Instance.data.isFullscreen;
+        SetDifficulty();
     }
 
     public void OpenMenu()
@@ -117,14 +118,19 @@ public class GameManager : Singleton<GameManager>
         Screen.fullScreen = DataManager.Instance.data.isFullscreen;
     }
 
-    public void NewGame()
+    public void SoftReset()
     {
-        DataManager.Instance.ResetGameData();
-        MySceneManager.Instance.ChangeScene("Tutorial", 0.5f);
+        DataManager.Instance.SoftResetGameData();
     }
-    public void GameStart()
+
+    public void HardReset()
     {
-        MySceneManager.Instance.ChangeScene("Tutorial", 0.5f);
+        DataManager.Instance.HardResetData();
+    }
+
+    public void Continue()
+    {
+        MySceneManager.Instance.ChangeScene(DataManager.Instance.data.savedScene, 0.5f);
     }
     public void GameExit()
     {
@@ -134,24 +140,24 @@ public class GameManager : Singleton<GameManager>
     public void SetDifficultyEasy() 
     {
         DataManager.Instance.data.difficulty = difficulty = "easy"; 
-        GameStart(); 
+        Continue(); 
     }
     public void SetDifficultyNormal() 
     {
         DataManager.Instance.data.difficulty = difficulty = "normal";
         recoverMax = 4;
-        GameStart(); 
+        Continue(); 
     }
     public void SetDifficultyBeteran() 
     {
         DataManager.Instance.data.difficulty = difficulty = "beteran";
         recoverMax = 2;
-        GameStart(); 
+        Continue(); 
     }
     public void SetDifficultyLegend() 
     {
         DataManager.Instance.data.difficulty = difficulty = "legend";
-        GameStart(); 
+        Continue(); 
     }
     public void SetDifficulty() 
     {

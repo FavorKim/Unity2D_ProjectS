@@ -22,10 +22,15 @@ public class DataManager : Singleton<DataManager>
         File.WriteAllText(filePath, ToJsonData);
     }
 
-    public void ResetGameData()
+    public void SoftResetGameData()
     {
-        data.isCleared = false;
         data.savePos = Vector2.zero;
         data.savedScene = "Tutorial";
+    }
+    public void HardResetData()
+    {
+        Data newData = new Data();
+        data = newData;
+        SaveGameData();
     }
 }
