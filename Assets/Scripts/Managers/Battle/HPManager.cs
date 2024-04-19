@@ -7,7 +7,7 @@ public class HPManager : MonoBehaviour
     [SerializeField] PlayerController player;
     [SerializeField] Animator HP;
     float recoverTime;
-    [SerializeField] static float MaxRecoverTime = 5.0f;
+    [SerializeField] static float MaxRecoverTime = 10.0f;
 
     public static float GetMaxRecoverTime() { return MaxRecoverTime; }
 

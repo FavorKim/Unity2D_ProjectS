@@ -176,6 +176,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         transform.position = DataManager.Instance.data.savePos;
+        isFreeze = false;
     }
     private void FixedUpdate()
     {

@@ -14,6 +14,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             {
                 // 씬에 이미 해당 타입의 인스턴스가 존재하는지 찾아서 가져오고
                 instance = (T)FindObjectOfType(typeof(T));
+                
                 // 찾아도 없으면
                 if(instance == null)
                 {
@@ -28,6 +29,12 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             return instance;
         }
     }
-
+    private void Awake()
+    {
+        if(instance !=null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }

@@ -26,6 +26,7 @@ public class DataManager : Singleton<DataManager>
     {
         data.savePos = Vector2.zero;
         data.savedScene = "Tutorial";
+        data.difficulty = "";
     }
     public void HardResetData()
     {

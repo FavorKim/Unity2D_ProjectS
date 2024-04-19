@@ -21,7 +21,7 @@ public class KangSeonController : MonoBehaviour
 
     public KangSeonLaser GetLaser() { return laser; }
 
-    [SerializeField] float atkCool = 5.0f;
+    [SerializeField] float atkCool = 2.0f;
 
 
     private void Awake()

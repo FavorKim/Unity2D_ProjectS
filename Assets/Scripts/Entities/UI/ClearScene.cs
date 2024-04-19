@@ -20,7 +20,6 @@ public class ClearScene : MonoBehaviour
             else
                 cleared.DOPlay();
         }
-        DataManager.Instance.data.savedScene = "Tutorial";
-        DataManager.Instance.data.savePos = Vector2.zero;
+        DataManager.Instance.SoftResetGameData();
     }
 }

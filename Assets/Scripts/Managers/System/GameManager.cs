@@ -17,7 +17,7 @@ public class GameManager : Singleton<GameManager>
 
     int recoverMax = 4;
     GameObject menu;
-    AudioMixer audioMixer;
+    //AudioMixer audioMixer;
     public int GetRecoverMax() { return recoverMax; }
     public string difficulty = "";
     public string deadScene;
@@ -31,7 +31,7 @@ public class GameManager : Singleton<GameManager>
         DontDestroyOnLoad(gameObject);
 
         cursor = Resources.Load<Texture2D>("Cursor");
-        audioMixer = Resources.Load<AudioMixer>("Master");
+       // audioMixer = Resources.Load<AudioMixer>("Master");
 
         UnityEngine.Cursor.SetCursor(cursor, new Vector2(cursor.width / 2, cursor.height / 2), CursorMode.Auto);
 
@@ -42,10 +42,11 @@ public class GameManager : Singleton<GameManager>
         menu.SetActive(false);
 
         Application.targetFrameRate = 60;
-
         InitSetting();
 
+
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -177,7 +178,7 @@ public class GameManager : Singleton<GameManager>
     }
     public void ReTry()
     {
-        MySceneManager.Instance.ChangeScene(deadScene, 2f);
+        MySceneManager.Instance.ChangeScene(DataManager.Instance.data.savedScene, 2f);
     }
 
     private void OnApplicationQuit()
