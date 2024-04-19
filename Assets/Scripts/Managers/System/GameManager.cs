@@ -67,7 +67,6 @@ public class GameManager : Singleton<GameManager>
         Screen.fullScreen = DataManager.Instance.data.isFullscreen;
         SetDifficulty();
     }
-
     public void OpenMenu()
     {
         SFXManager.Instance.PlaySFX("click", "ui");
@@ -118,14 +117,15 @@ public class GameManager : Singleton<GameManager>
         Screen.fullScreen = DataManager.Instance.data.isFullscreen;
     }
 
+
     public void SoftReset()
     {
         DataManager.Instance.SoftResetGameData();
     }
-
     public void HardReset()
     {
         DataManager.Instance.HardResetData();
+        MySceneManager.Instance.ChangeScene("MainScene", 0.5f);
     }
 
     public void Continue()

@@ -1497,12 +1497,12 @@ RectTransform:
   m_Children:
   - {fileID: 115226631}
   m_Father: {fileID: 1892698994}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 701, y: 70}
-  m_SizeDelta: {x: -1440, y: -981.2563}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 701, y: -439}
+  m_SizeDelta: {x: 480, y: 98.7437}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154480766
 MonoBehaviour:
@@ -1812,10 +1812,10 @@ RectTransform:
   m_Father: {fileID: 1892698994}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 701, y: -58}
-  m_SizeDelta: {x: -1440, y: -981.2563}
+  m_SizeDelta: {x: 480, y: 98.74371}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &159263597
 MonoBehaviour:
@@ -2038,10 +2038,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 63109786}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1892698995}
+        m_TargetAssemblyTypeName: MainSceneController, Assembly-CSharp
+        m_MethodName: NewStart
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2170,12 +2170,12 @@ RectTransform:
   m_Children:
   - {fileID: 1350768963}
   m_Father: {fileID: 1892698994}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 701, y: -313}
-  m_SizeDelta: {x: -1440, y: -989}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 701, y: -182}
+  m_SizeDelta: {x: 480, y: 98.7437}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &180793149
 MonoBehaviour:
@@ -3395,6 +3395,7 @@ GameObject:
   - component: {fileID: 357767600}
   - component: {fileID: 357767604}
   - component: {fileID: 357767605}
+  - component: {fileID: 357767606}
   m_Layer: 5
   m_Name: Button_Start
   m_TagString: Untagged
@@ -3416,11 +3417,11 @@ RectTransform:
   m_Children:
   - {fileID: 493445236}
   m_Father: {fileID: 1892698994}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 701, y: -182.12817}
+  m_AnchoredPosition: {x: 701, y: 70}
   m_SizeDelta: {x: 480, y: 98.7437}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &357767600
@@ -3694,6 +3695,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &357767606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357767598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbd0d3c23808fb4fbba138463ab231c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &363008726
 GameObject:
   m_ObjectHideFlags: 0
@@ -7402,12 +7415,12 @@ RectTransform:
   m_Children:
   - {fileID: 64581189}
   m_Father: {fileID: 1892698994}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 701, y: -439}
-  m_SizeDelta: {x: -1440, y: -989}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 701, y: -313}
+  m_SizeDelta: {x: 480, y: 98.7437}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1068313400
 MonoBehaviour:
@@ -10717,11 +10730,11 @@ RectTransform:
   m_Children:
   - {fileID: 854839502}
   - {fileID: 2046998175}
-  - {fileID: 154480765}
-  - {fileID: 159263596}
   - {fileID: 357767599}
+  - {fileID: 159263596}
   - {fileID: 180793148}
   - {fileID: 1068313399}
+  - {fileID: 154480765}
   - {fileID: 1819213443}
   - {fileID: 21720468}
   - {fileID: 400915851}
@@ -10749,6 +10762,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cleared: {fileID: 21720467}
   unCleared: {fileID: 1819213442}
+  newstartPopup: {fileID: 63109786}
+  mainBG: {fileID: 283235040}
 --- !u!1 &1913842053
 GameObject:
   m_ObjectHideFlags: 0
