@@ -173,6 +173,10 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(DashCool());
 
     }
+    private void Start()
+    {
+        transform.position = DataManager.Instance.data.savePos;
+    }
     private void FixedUpdate()
     {
         state.Move();
@@ -972,6 +976,8 @@ public class PlayerController : MonoBehaviour
         {
             MySceneManager.Instance.ChangeScene(SceneManager.GetActiveScene().name, 1f);
         }
+        if(collision.CompareTag("SavePoint"))
+            DataManager.Instance.data.savePos = collision.transform.position;
 
     }
     #endregion

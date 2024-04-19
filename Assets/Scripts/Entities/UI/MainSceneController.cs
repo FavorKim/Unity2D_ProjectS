@@ -14,4 +14,9 @@ public class MainSceneController : MonoBehaviour
             unCleared.SetActive(true);
     }
 
+    public void NewStart()
+    {
+
+    }
+
 }

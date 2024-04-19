@@ -12,6 +12,8 @@ public class Elevator : MonoBehaviour
 
     void OnBoard()
     {
+        DataManager.Instance.data.savePos = Vector2.zero;
+        DataManager.Instance.data.savedScene = "KangSeon";
         MySceneManager.Instance.ChangeScene("KangSeon", 0.5f);
     }
 

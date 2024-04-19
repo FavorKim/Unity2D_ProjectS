@@ -13,4 +13,7 @@ public class Data
     public float sfxVol = 0.5f;
     public bool isFullscreen = true;
     public int resolution = 0;
+    public Vector2 savePos = Vector2.zero;
+    public string savedScene = "Tutorial";
+    public string difficulty = "";
 }

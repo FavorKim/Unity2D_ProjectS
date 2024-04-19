@@ -18,6 +18,7 @@ TagManager:
   - DeadZone
   - Boss
   - PushPlatform
+  - SavePoint
   layers:
   - Default
   - TransparentFX

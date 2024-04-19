@@ -24,9 +24,8 @@ public class DataManager : Singleton<DataManager>
 
     public void ResetGameData()
     {
-        Data newData = new Data();
-        data = newData;
-        SaveGameData();
-
+        data.isCleared = false;
+        data.savePos = Vector2.zero;
+        data.savedScene = "Tutorial";
     }
 }
