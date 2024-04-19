@@ -66,8 +66,9 @@ public class SFXManager : Singleton<SFXManager>
     #endregion
 
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         playerClips = new Dictionary<string, AudioClip>();
         playerClips.Add("chargeStart", chargeStart);
         playerClips.Add("chargeloop", chargeloop);

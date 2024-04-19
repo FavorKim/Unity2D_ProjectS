@@ -131,7 +131,7 @@ public class GameManager : Singleton<GameManager>
 
     public void Continue()
     {
-        MySceneManager.Instance.ChangeScene(DataManager.Instance.data.savedScene, 0.5f);
+        MySceneManager.Instance.ChangeScene(DataManager.Instance.data.savedScene, 1.5f);
     }
     public void GameExit()
     {
@@ -166,11 +166,6 @@ public class GameManager : Singleton<GameManager>
     }
 
 
-    public void Clear()
-    {
-        DataManager.Instance.data.isCleared = true;
-        DataManager.Instance.SaveGameData();
-    }
 
     public void ToMain()
     {

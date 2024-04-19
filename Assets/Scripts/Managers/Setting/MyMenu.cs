@@ -8,8 +8,9 @@ public class MyMenu : Singleton<MyMenu>
     [SerializeField] UnityEngine.UI.Toggle toggle;
     [SerializeField] TMP_Dropdown dropdown;
     [SerializeField] UnityEngine.UI.Slider aim;
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         DontDestroyOnLoad(this.gameObject);
         aim.value = DataManager.Instance.data.aimVal;
         dropdown.value = DataManager.Instance.data.resolution;

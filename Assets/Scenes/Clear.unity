@@ -276,9 +276,9 @@ MonoBehaviour:
   onComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1048064735}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ToMain
+      - m_Target: {fileID: 98968685}
+        m_TargetAssemblyTypeName: ClearScene, Assembly-CSharp
+        m_MethodName: OnClear
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -298,7 +298,7 @@ MonoBehaviour:
   targetGO: {fileID: 0}
   tweenTargetIsTargetGO: 1
   delay: 0
-  duration: 4
+  duration: 2.56
   easeType: 37
   easeCurve:
     serializedVersion: 2
@@ -322,23 +322,14 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.6244292
     - serializedVersion: 3
-      time: 2.5
-      value: 1
+      time: 2.5559711
+      value: 1.0047473
       inSlope: -0.016235642
       outSlope: -0.016235642
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.69771576
-    - serializedVersion: 3
-      time: 4
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -1032,7 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fdd03ce34094f346be1fd8d02605bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 
+  difficulty: legend
   deadScene: 
 --- !u!1 &1154894948
 GameObject:
@@ -1071,10 +1062,10 @@ RectTransform:
   m_Father: {fileID: 98968684}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 303.33997, y: 50}
+  m_SizeDelta: {x: -1616.66, y: -1030}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1154894950
 MonoBehaviour:
@@ -1345,10 +1336,10 @@ RectTransform:
   m_Father: {fileID: 98968684}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 303.34, y: 50}
+  m_SizeDelta: {x: -1616.66, y: -1030}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1786388701
 MonoBehaviour:
@@ -1483,21 +1474,9 @@ MonoBehaviour:
   onComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1048064735}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Clear
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1048064735}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ToMain
+      - m_Target: {fileID: 98968685}
+        m_TargetAssemblyTypeName: ClearScene, Assembly-CSharp
+        m_MethodName: OnClear
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1630,10 +1609,10 @@ RectTransform:
   m_Father: {fileID: 98968684}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851574577
 MonoBehaviour:
@@ -1707,10 +1686,10 @@ RectTransform:
   m_Father: {fileID: 98968684}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 303.33997, y: 50}
+  m_SizeDelta: {x: -1616.66, y: -1030}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1908618269
 MonoBehaviour:
@@ -1748,9 +1727,9 @@ MonoBehaviour:
   onComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1048064735}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ToMain
+      - m_Target: {fileID: 98968685}
+        m_TargetAssemblyTypeName: ClearScene, Assembly-CSharp
+        m_MethodName: OnClear
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

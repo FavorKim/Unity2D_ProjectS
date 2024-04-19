@@ -9,6 +9,7 @@ public class FinishLine : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             MySceneManager.Instance.ChangeScene("Clear", 3f);
+            gameObject.SetActive(false);
         }
     }
 }

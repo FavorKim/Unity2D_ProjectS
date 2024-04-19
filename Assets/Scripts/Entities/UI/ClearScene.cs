@@ -22,4 +22,10 @@ public class ClearScene : MonoBehaviour
         }
         DataManager.Instance.SoftResetGameData();
     }
+
+    public void OnClear()
+    {
+        GameManager.Instance.ToMain();
+        DataManager.Instance.data.isCleared = true;
+    }
 }
