@@ -9,12 +9,12 @@ public class MySlider : MonoBehaviour
 {
     [SerializeField]TextMeshProUGUI tMP;
     //TextMeshProUGUI tMPUGUI;
-    Slider slider;
-    void Start()
-    {
-        //tMPUGUI = GetComponent<TextMeshProUGUI>();
-        slider = GetComponent<Slider>();
-    }
+    [SerializeField] Slider slider;
+    //void Start()
+    //{
+    //    //tMPUGUI = GetComponent<TextMeshProUGUI>();
+    //    slider = GetComponent<Slider>();
+    //}
 
     private void Update()
     {
@@ -26,7 +26,7 @@ public class MySlider : MonoBehaviour
 
     public void OnChangeValue()
     {
-        GameManager.Instance.SetAimRad(slider);
+        GameManager.Instance.SetAimRad(slider.value);
     }
 
 }

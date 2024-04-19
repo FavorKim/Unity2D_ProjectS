@@ -12,9 +12,8 @@ using UnityEngine.UIElements;
 
 public class GameManager : Singleton<GameManager>
 {
-    float aimRad;
-    float sliderValue;
     bool isFull = true;
+    float aimRad;
 
     int recoverMax = 4;
     GameObject menu;
@@ -23,28 +22,29 @@ public class GameManager : Singleton<GameManager>
     public string difficulty = "";
     public string deadScene;
 
-    
-
     Texture2D cursor;
 
 
     private void Start()
     {
+        DataManager.Instance.LoadGameData();
         DontDestroyOnLoad(gameObject);
+
         cursor = Resources.Load<Texture2D>("Cursor");
         audioMixer = Resources.Load<AudioMixer>("Master");
-
 
         UnityEngine.Cursor.SetCursor(cursor, new Vector2(cursor.width / 2, cursor.height / 2), CursorMode.Auto);
 
         if (FindAnyObjectByType<MyMenu>() == null)
             menu = Instantiate(Resources.Load<GameObject>("Menu"));
-
         else
             menu = FindAnyObjectByType<MyMenu>().gameObject;
         menu.SetActive(false);
 
         Application.targetFrameRate = 60;
+
+        InitSetting();
+
     }
     private void Update()
     {
@@ -55,36 +55,48 @@ public class GameManager : Singleton<GameManager>
                 SFXManager.Instance.PlaySFX("cancel", "ui");
                 menu.SetActive(false);
             }
-            else if (SceneManager.GetActiveScene().name != "MainScene" && SceneManager.GetActiveScene().name != "Dead")
+            else if (SceneManager.GetActiveScene().name != "MainScene" && SceneManager.GetActiveScene().name != "Dead" && SceneManager.GetActiveScene().name != "Clear")
                 OpenMenu();
         }
     }
 
+    private void InitSetting()
+    {
+        SetAim();
+        SetResolution(DataManager.Instance.data.resolution);
+        Screen.fullScreen = DataManager.Instance.data.isFullscreen;
+    }
+
     public void OpenMenu()
     {
-        SFXManager.Instance.PlaySFX("select", "ui");
+        SFXManager.Instance.PlaySFX("click", "ui");
         menu.SetActive(true);
     }
 
-    public void SetAimRad(UnityEngine.UI.Slider select)
+    public void SetAimRad(float value)
     {
-        sliderValue = select.value;
-        aimRad = Anchor.GetInitRad() + (Anchor.GetInitRad() * (sliderValue / 100));
+        DataManager.Instance.data.aimVal = value;
         SetAim();
     }
+
     public void SetAim()
     {
+        if (Anchor.anc == null) return;
+        aimRad = Anchor.GetInitRad() + (Anchor.GetInitRad() * (DataManager.Instance.data.aimVal / 100));
+
         if (Anchor.anc != null)
         {
             Anchor.anc.radius = aimRad;
 
-            if (sliderValue == default)
+            if (DataManager.Instance.data.aimVal == default)
                 Anchor.anc.radius = Anchor.GetInitRad();
         }
     }
     public void SetResolution(int dropvalue)
     {
-        switch (dropvalue)
+        DataManager.Instance.data.resolution = dropvalue;
+
+        switch (DataManager.Instance.data.resolution)
         {
             case 0:
                 Screen.SetResolution(3840, 2160, isFull);
@@ -101,8 +113,8 @@ public class GameManager : Singleton<GameManager>
     }
     public void SetFullorWindow(UnityEngine.UI.Toggle toggle)
     {
-        isFull = toggle.isOn;
-        Screen.fullScreen = toggle.isOn;
+        DataManager.Instance.data.isFullscreen = toggle.isOn;
+        Screen.fullScreen = DataManager.Instance.data.isFullscreen;
     }
     
 
@@ -120,6 +132,11 @@ public class GameManager : Singleton<GameManager>
     public void SetDifficultyBeteran() { difficulty = "beteran"; recoverMax = 2; GameStart(); }
     public void SetDifficultyLegend() { difficulty = "legend"; GameStart(); }
 
+    public void Clear()
+    {
+        DataManager.Instance.data.isCleared = true;
+    }
+
     public void ToMain()
     {
         MySceneManager.Instance.ChangeScene("MainScene", 2f);
@@ -129,4 +146,8 @@ public class GameManager : Singleton<GameManager>
         MySceneManager.Instance.ChangeScene(deadScene, 2f);
     }
 
+    private void OnApplicationQuit()
+    {
+        DataManager.Instance.SaveGameData();
+    }
 }

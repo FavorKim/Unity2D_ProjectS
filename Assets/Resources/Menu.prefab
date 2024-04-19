@@ -368,6 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggle: {fileID: 783308466669918047}
   dropdown: {fileID: 783308465350223009}
+  aim: {fileID: 783308465067767041}
 --- !u!1 &783308464840137015
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tMP: {fileID: 783308465253856622}
+  slider: {fileID: 783308465067767041}
 --- !u!1 &783308465140167126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,7 +1305,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &7091515083214505584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1332,7 +1334,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 1
   - eventID: 2
     callback:
       m_PersistentCalls:
@@ -1348,7 +1350,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 1
 --- !u!1 &783308465350223023
 GameObject:
   m_ObjectHideFlags: 0
@@ -3684,6 +3686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tMP: {fileID: 363289906781126159}
+  slider: {fileID: 341245632851242649}
 --- !u!1 &3049475579352085391
 GameObject:
   m_ObjectHideFlags: 0
@@ -4227,6 +4230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tMP: {fileID: 7352953732767260836}
+  slider: {fileID: 5039103829453295723}
 --- !u!1 &3415062642655094305
 GameObject:
   m_ObjectHideFlags: 0
@@ -5257,7 +5261,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &9175839428828795923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5286,7 +5290,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 1
   - eventID: 2
     callback:
       m_PersistentCalls:
@@ -5302,7 +5306,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 1
 --- !u!1 &7062178230119589877
 GameObject:
   m_ObjectHideFlags: 0
@@ -6020,6 +6024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tMP: {fileID: 7819517839711159056}
+  slider: {fileID: 5614048327321759593}
 --- !u!1 &9095092165432473799
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class MyMenu : Singleton<MyMenu>
 {
     [SerializeField] UnityEngine.UI.Toggle toggle;
     [SerializeField] TMP_Dropdown dropdown;
-
+    [SerializeField] UnityEngine.UI.Slider aim;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        aim.value = DataManager.Instance.data.aimVal;
+        dropdown.value = DataManager.Instance.data.resolution;
+        toggle.isOn = DataManager.Instance.data.isFullscreen;
     }
     private void OnEnable()
     {

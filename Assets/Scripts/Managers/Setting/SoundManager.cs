@@ -18,19 +18,35 @@ public class SoundManager : MonoBehaviour
         entire.onValueChanged.AddListener(SetEntireVolume);
         bgm.onValueChanged.AddListener(SetBGMVolume);
         sfx.onValueChanged.AddListener(SetSFXVolume);
+        InitSound();
+    }
 
+    private void InitSound()
+    {
+        entire.value = DataManager.Instance.data.mainVol;
+        SetEntireVolume(DataManager.Instance.data.mainVol);
+
+        bgm.value = DataManager.Instance.data.bgmVol;
+        SetBGMVolume(DataManager.Instance.data.bgmVol);
+
+        sfx.value = DataManager.Instance.data.sfxVol;
+        SetSFXVolume(DataManager.Instance.data.sfxVol);
     }
 
     public void SetEntireVolume(float vol)
     {
-        audioMixer.SetFloat("Master", Mathf.Log10(vol) * 20);
+        DataManager.Instance.data.mainVol = vol;
+        audioMixer.SetFloat("Master", Mathf.Log10(DataManager.Instance.data.mainVol) * 20);
+        
     }
     public void SetBGMVolume(float vol)
     {
-        audioMixer.SetFloat("BGM", Mathf.Log10(vol) * 20);
+        DataManager.Instance.data.bgmVol = vol;
+        audioMixer.SetFloat("BGM", Mathf.Log10(DataManager.Instance.data.bgmVol) * 20);
     }
     public void SetSFXVolume(float vol)
     {
-        audioMixer.SetFloat("SFX", Mathf.Log10(vol) * 20);
+        DataManager.Instance.data.sfxVol = vol;
+        audioMixer.SetFloat("SFX", Mathf.Log10(DataManager.Instance.data.sfxVol) * 20);
     }
 }
