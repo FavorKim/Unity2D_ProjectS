@@ -13,9 +13,12 @@ public class ClearScene : MonoBehaviour
     {
         if (!DataManager.Instance.data.isCleared)
             first.DOPlay();
-        if(DataManager.Instance.data.isCleared)
-            cleared.DOPlay();
-        if(GameManager.Instance.difficulty=="legend")
-            legend.DOPlay();
+        else
+        {
+            if (GameManager.Instance.difficulty == "legend")
+                legend.DOPlay();
+            else
+                cleared.DOPlay();
+        }
     }
 }

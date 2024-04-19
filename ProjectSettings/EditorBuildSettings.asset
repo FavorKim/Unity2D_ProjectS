@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dead.unity
     guid: e079ad51b209246428392032f6b323eb
+  - enabled: 1
+    path: Assets/Scenes/Clear.unity
+    guid: b22c511b52fa59348b1a5451ee53555a
   m_configObjects: {}
