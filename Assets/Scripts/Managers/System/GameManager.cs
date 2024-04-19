@@ -135,6 +135,7 @@ public class GameManager : Singleton<GameManager>
     public void Clear()
     {
         DataManager.Instance.data.isCleared = true;
+        DataManager.Instance.SaveGameData();
     }
 
     public void ToMain()
@@ -149,5 +150,10 @@ public class GameManager : Singleton<GameManager>
     private void OnApplicationQuit()
     {
         DataManager.Instance.SaveGameData();
+    }
+
+    public void SetDebugInvincible(UnityEngine.UI.Toggle toggle)
+    {
+        PlayerController.DebugInvincible(toggle.isOn);
     }
 }

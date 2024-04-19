@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     public bool IsAttacking { get; set; }
     public bool IsSpinning { get; set; }
     public static bool isFreeze { get; set; }
-    bool isInvincible = false;
+    static bool isInvincible = false;
     #endregion
     #region getter
     public SpriteRenderer GetSR() { return sR; }
@@ -152,6 +152,7 @@ public class PlayerController : MonoBehaviour
     public void ResetDashCool() { swingDashCool = swingCooldown; }
     public bool CanDash() { return swingDashCool == swingCooldown; }
     public void SetFreeze(bool val) { isFreeze = val; }
+
     #endregion
 
     #region LifeCycle
@@ -974,6 +975,11 @@ public class PlayerController : MonoBehaviour
 
     }
     #endregion
+
+    public static void DebugInvincible(bool toggle)
+    {
+        isInvincible = toggle;
+    }
 }
 
 public interface IPlayerState
