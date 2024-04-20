@@ -7,7 +7,7 @@ public class ResolutionManager : Singleton<ResolutionManager>
 {
     Dropdown drop;
 
-    protected void Awake()
+    private void Start()
     {
         drop = GetComponent<Dropdown>();
     }

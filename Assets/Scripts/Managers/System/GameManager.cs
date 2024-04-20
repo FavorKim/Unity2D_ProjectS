@@ -16,7 +16,6 @@ public class GameManager : Singleton<GameManager>
     float aimRad;
 
     int recoverMax = 4;
-    GameObject menu;
     //AudioMixer audioMixer;
     public int GetRecoverMax() { return recoverMax; }
     public string difficulty = "";
@@ -25,8 +24,9 @@ public class GameManager : Singleton<GameManager>
     Texture2D cursor;
 
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         instance = this;
         DataManager.Instance.LoadGameData();
         DontDestroyOnLoad(gameObject);
@@ -36,11 +36,6 @@ public class GameManager : Singleton<GameManager>
 
         UnityEngine.Cursor.SetCursor(cursor, new Vector2(cursor.width / 2, cursor.height / 2), CursorMode.Auto);
 
-        if (FindAnyObjectByType<MyMenu>() == null)
-            menu = Instantiate(Resources.Load<GameObject>("Menu"));
-        else
-            menu = FindAnyObjectByType<MyMenu>().gameObject;
-        menu.SetActive(false);
 
         Application.targetFrameRate = 60;
         InitSetting();
@@ -52,13 +47,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (menu.activeSelf)
-            {
-                SFXManager.Instance.PlaySFX("cancel", "ui");
-                menu.SetActive(false);
-            }
-            else if (SceneManager.GetActiveScene().name != "MainScene" && SceneManager.GetActiveScene().name != "Dead" && SceneManager.GetActiveScene().name != "Clear")
-                OpenMenu();
+            OpenMenu();
         }
     }
 
@@ -72,7 +61,7 @@ public class GameManager : Singleton<GameManager>
     public void OpenMenu()
     {
         SFXManager.Instance.PlaySFX("click", "ui");
-        menu.SetActive(true);
+        MyMenu.Instance.OnPressMenu();
     }
 
     public void SetAimRad(float value)

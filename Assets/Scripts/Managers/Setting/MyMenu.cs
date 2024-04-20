@@ -9,18 +9,29 @@ public class MyMenu : Singleton<MyMenu>
     [SerializeField] TMP_Dropdown dropdown;
     [SerializeField] UnityEngine.UI.Slider aim;
 
-    private void Start()
+    private void Awake()
     {
-        instance = this;
-    }
-
-    protected void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
         aim.value = DataManager.Instance.data.aimVal;
         dropdown.value = DataManager.Instance.data.resolution;
         toggle.isOn = DataManager.Instance.data.isFullscreen;
     }
+
+    protected override void Start()
+    {
+        base.Start();
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+        gameObject.SetActive(false);
+    }
+
+    public void OnPressMenu()
+    {
+        if (gameObject.activeSelf)
+            gameObject.SetActive(false);
+        else
+            gameObject.SetActive(true);
+    }
+
     private void OnEnable()
     {
         PlayerController.isFreeze = true;
