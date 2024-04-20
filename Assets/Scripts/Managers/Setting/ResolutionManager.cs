@@ -7,9 +7,8 @@ public class ResolutionManager : Singleton<ResolutionManager>
 {
     Dropdown drop;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         drop = GetComponent<Dropdown>();
     }
     public int GetDropVal() {  return drop.value; }

@@ -13,18 +13,16 @@ public class MySceneManager : Singleton<MySceneManager>
     public bool IsComplete() { return !fadeImg.blocksRaycasts; }
 
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
-
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnComplete;
     }
 
-    //private void Start()
-    //{
-        
-    //}
+    private void Start()
+    {
+        instance = this;
+    }
 
     public void ChangeScene(string sceneName, float fadeSpeed)
     {

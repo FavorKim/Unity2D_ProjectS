@@ -27,6 +27,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        instance = this;
         DataManager.Instance.LoadGameData();
         DontDestroyOnLoad(gameObject);
 
