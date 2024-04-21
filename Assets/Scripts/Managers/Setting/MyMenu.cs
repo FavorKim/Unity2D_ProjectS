@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MyMenu : Singleton<MyMenu>
 {
@@ -26,10 +27,13 @@ public class MyMenu : Singleton<MyMenu>
 
     public void OnPressMenu()
     {
+
         if (gameObject.activeSelf)
             gameObject.SetActive(false);
         else
             gameObject.SetActive(true);
+        SFXManager.Instance.PlaySFX("click", "ui");
+
     }
 
     private void OnEnable()

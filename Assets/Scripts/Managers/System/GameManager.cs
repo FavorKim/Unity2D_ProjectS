@@ -47,6 +47,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (SceneManager.GetActiveScene().name == "MainScene") return;
             OpenMenu();
         }
     }
@@ -60,7 +61,6 @@ public class GameManager : Singleton<GameManager>
     }
     public void OpenMenu()
     {
-        SFXManager.Instance.PlaySFX("click", "ui");
         MyMenu.Instance.OnPressMenu();
     }
 
