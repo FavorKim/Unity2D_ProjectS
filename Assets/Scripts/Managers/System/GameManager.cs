@@ -47,7 +47,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (SceneManager.GetActiveScene().name == "MainScene") return;
+            if (SceneManager.GetActiveScene().name == "MainScene" || SceneManager.GetActiveScene().name == "Clear") return;
             OpenMenu();
         }
     }

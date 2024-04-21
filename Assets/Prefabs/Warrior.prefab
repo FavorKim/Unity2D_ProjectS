@@ -123,9 +123,8 @@ MonoBehaviour:
   player: {fileID: 0}
   anim: {fileID: 7725880152291271721}
   col: {fileID: 0}
-  detectRange: 20
-  atkTime: 3
-  size: 0.5
+  detectRange: 30
+  atkTime: 1.5
 --- !u!50 &7725880152291271723
 Rigidbody2D:
   serializedVersion: 4

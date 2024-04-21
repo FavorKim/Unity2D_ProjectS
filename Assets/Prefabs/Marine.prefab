@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 2483431797683620619}
   - component: {fileID: 7954282914247821822}
   - component: {fileID: -974278432927432289}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Marine
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -230,9 +230,8 @@ MonoBehaviour:
   player: {fileID: 0}
   anim: {fileID: 2483431797683620629}
   col: {fileID: 0}
-  detectRange: 20
-  atkTime: 3
-  size: 0.5
+  detectRange: 30
+  atkTime: 1.5
 --- !u!50 &2483431797683620631
 Rigidbody2D:
   serializedVersion: 4

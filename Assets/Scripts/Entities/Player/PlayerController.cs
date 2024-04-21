@@ -391,7 +391,7 @@ public class PlayerController : MonoBehaviour
 
             cam.m_Lens.OrthographicSize = 5f;
 
-            if (bM.GetWave() % 3 == 0 && bM.GetWave() != 0)
+            if (bM.GetWave() % 2 == 0 && bM.GetWave() != 0)
             {
                 isQTE = true;
                 player.transform.position = new Vector2(KS.gameObject.transform.position.x, KS.gameObject.transform.position.y);
@@ -855,6 +855,7 @@ public class PlayerController : MonoBehaviour
             player.StopCoroutine(CorSpin());
             col.isTrigger = false;
             player.IsSpinning = false;
+            isInvincible = false;
 
         }
 
@@ -882,16 +883,15 @@ public class PlayerController : MonoBehaviour
                         anim.Play("SNB_Fall");
                         player.SetState(AirState.Instance);
                         time = 0.0f;
-
                         break;
 
                     }
                     else
                     {
                         col.isTrigger = true;
-                        anim.SetTrigger("SpinEnd");
                         player.IsSpinning = true;
                         player.StartCoroutine(ITrace());
+                        isInvincible = true;
                         time = 0.0f;
                         break;
                     }
@@ -906,6 +906,7 @@ public class PlayerController : MonoBehaviour
 
         IEnumerator ITrace()
         {
+            anim.SetTrigger("SpinEnd");
             Vector2 dir;
             while (player.IsSpinning)
             {
@@ -954,7 +955,7 @@ public class PlayerController : MonoBehaviour
                     IsSpinning = false;
                     SetState(AirState.Instance);
                 }
-                anim.SetTrigger("Exit");
+                //anim.SetTrigger("Exit");
                 VFXManager.Instance.PlayVFX(collision.transform.position, "VFX_ExcuteEnd");
                 SFXManager.Instance.PlaySFX("chargeHit", "aim");
             }

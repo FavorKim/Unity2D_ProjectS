@@ -14,6 +14,7 @@ public class WallAttach : MonoBehaviour
         {
             if(player.GetState()!=PlayerController.ClimbState.Instance)
             {
+                Debug.Log("wall");
                 player.SetState(PlayerController.ClimbState.Instance);
             }
         }
@@ -25,6 +26,7 @@ public class WallAttach : MonoBehaviour
         if (player.GetState() == PlayerController.AttachState.Instance|| player.GetState() == PlayerController.MonAttachState.Instance|| player.GetState() == PlayerController.SpinState.Instance || player.GetState() == PlayerController.BossAttackState.Instance || player.GetState() == PlayerController.QTEState.Instance) return;
         else if (collision.CompareTag("Attachable") || collision.CompareTag("Platform") || collision.CompareTag("PushPlatform"))
         {
+                Debug.Log("wall");
             player.SetState(PlayerController.AirState.Instance);
         }
     }

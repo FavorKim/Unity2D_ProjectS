@@ -25,7 +25,8 @@ public class ClearScene : MonoBehaviour
 
     public void OnClear()
     {
-        GameManager.Instance.ToMain();
         DataManager.Instance.data.isCleared = true;
+        DataManager.Instance.SaveGameData();
+        GameManager.Instance.ToMain();
     }
 }

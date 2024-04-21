@@ -3560,7 +3560,7 @@ MonoBehaviour:
   - {fileID: 591094929}
   - {fileID: 2037972802}
   - {fileID: 1774794359}
-  wave: 7
+  wave: 6
   wallAnim:
   - {fileID: 0}
   - {fileID: 0}
