@@ -29,9 +29,9 @@ public class VFXManager : Singleton<VFXManager>
    
 
 
-    private void Start()
+    protected override void Start()
     {
-
+        base.Start();
         pointPref = Instantiate(pointPref);
         anim = pointPref.GetComponent<Animator>();
         VFXPosDict = new Dictionary<string, Transform>();

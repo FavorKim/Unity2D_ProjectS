@@ -16,14 +16,13 @@ public class MySceneManager : Singleton<MySceneManager>
     protected override void Start()
     {
         base.Start();
-        DontDestroyOnLoad(gameObject);
         instance = this;
+        SceneManager.sceneLoaded += OnComplete;
     }
 
     private void Awake()
     {
-        SceneManager.sceneLoaded += OnComplete;
-
+        DontDestroyOnLoad(gameObject);
     }
 
     public void ChangeScene(string sceneName, float fadeSpeed)
@@ -41,10 +40,10 @@ public class MySceneManager : Singleton<MySceneManager>
 
     void OnComplete(Scene scene, LoadSceneMode mode)
     {
-        StartCoroutine(CorFadeIn());
+        Instance.StartCoroutine(CorFadeIn());
     }
 
-    IEnumerator CorFadeIn()
+    public IEnumerator CorFadeIn()
     {
         while (fadeImg.alpha > 0)
         {
