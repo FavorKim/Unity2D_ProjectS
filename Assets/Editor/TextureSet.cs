@@ -16,7 +16,7 @@ public class SetTexture
 
             TextureImporter textureImporter = AssetImporter.GetAtPath(path) as TextureImporter;
 
-            textureImporter.spritePixelsPerUnit = 20;
+            textureImporter.spritePixelsPerUnit = 10;
             textureImporter.filterMode = FilterMode.Point;
 
             AssetDatabase.ImportAsset(path);
