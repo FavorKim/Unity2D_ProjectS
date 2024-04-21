@@ -32,7 +32,6 @@ public class GameManager : Singleton<GameManager>
         DontDestroyOnLoad(gameObject);
 
         cursor = Resources.Load<Texture2D>("Cursor");
-       // audioMixer = Resources.Load<AudioMixer>("Master");
 
         UnityEngine.Cursor.SetCursor(cursor, new Vector2(cursor.width / 2, cursor.height / 2), CursorMode.Auto);
 

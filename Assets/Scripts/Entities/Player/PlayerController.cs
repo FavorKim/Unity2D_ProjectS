@@ -435,7 +435,7 @@ public class PlayerController : MonoBehaviour
             armSr.enabled = false;
             hookLine.enabled = false;
             aimLine.enabled = false;
-
+            isFreeze = true;
             BossAttack();
         }
 
@@ -453,6 +453,8 @@ public class PlayerController : MonoBehaviour
             armSr.enabled = true;
             hookLine.enabled = false;
             aimLine.enabled = true;
+            isFreeze = false;
+
         }
 
         public override void Jump() { }
@@ -477,6 +479,7 @@ public class PlayerController : MonoBehaviour
         {
             player.anim.Play("SNB_Clash_Start");
             player.GetSR().flipX = true;
+            isFreeze = true;
 
             bM.EnterQTE();
         }
@@ -494,6 +497,8 @@ public class PlayerController : MonoBehaviour
             armSr.enabled = true;
             hookLine.enabled = false;
             aimLine.enabled = true;
+            isFreeze = false;
+
         }
 
 
@@ -626,6 +631,7 @@ public class PlayerController : MonoBehaviour
             anchor.GetJoint().enabled = false;
 
             rb.velocity = Vector2.zero;
+
         }
         public override void Exit()
         {
@@ -851,8 +857,7 @@ public class PlayerController : MonoBehaviour
         {
             time = 0;
             rb.gravityScale = targetGravity;
-            player.StopCoroutine(ITrace());
-            player.StopCoroutine(CorSpin());
+            player.StopAllCoroutines();
             col.isTrigger = false;
             player.IsSpinning = false;
             isInvincible = false;

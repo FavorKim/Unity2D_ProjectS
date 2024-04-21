@@ -48,7 +48,8 @@ public class MyMenu : Singleton<MyMenu>
     }
     public void OnExit()
     {
-        Application.Quit();
+        gameObject.SetActive(false);
+        GameManager.instance.ToMain();
     }
 
     public void OnFullscreenToggle()
