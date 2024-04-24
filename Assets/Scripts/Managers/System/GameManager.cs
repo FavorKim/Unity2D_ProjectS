@@ -12,7 +12,6 @@ using UnityEngine.UIElements;
 
 public class GameManager : Singleton<GameManager>
 {
-    bool isFull = true;
     float aimRad;
 
     int recoverMax = 4;
@@ -89,13 +88,13 @@ public class GameManager : Singleton<GameManager>
         switch (DataManager.Instance.data.resolution)
         {
             case 0:
-                Screen.SetResolution(3840, 2160, isFull);
+                Screen.SetResolution(3840, 2160, DataManager.Instance.data.isFullscreen);
                 break;
             case 1:
-                Screen.SetResolution(1920, 1080, isFull);
+                Screen.SetResolution(1920, 1080, DataManager.Instance.data.isFullscreen);
                 break;
             case 2:
-                Screen.SetResolution(1280, 720, isFull);
+                Screen.SetResolution(1280, 720, DataManager.Instance.data.isFullscreen);
                 break;
             default:
                 break;
@@ -158,6 +157,7 @@ public class GameManager : Singleton<GameManager>
 
     public void ToMain()
     {
+        DataManager.instance.SaveGameData();
         MySceneManager.Instance.ChangeScene("MainScene", 2f);
     }
     public void ReTry()

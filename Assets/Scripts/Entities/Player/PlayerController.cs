@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     protected float excuteMove = 4f;
     protected float swingForce = 45.0f;
     protected float swingCooldown = 4.0f;
-    protected float damagedDash = 5.0f;
+    protected float damagedDash = 800.0f;
     protected float swingDashCool { get; set; }
     float spinSpeed = 30.0f;
     float curSize;
@@ -219,22 +219,23 @@ public class PlayerController : MonoBehaviour
             OnDead();
             return;
         }
+        rb.velocity = Vector2.zero;
 
         SFXManager.Instance.PlaySFX("damaged", "player");
+        Vector2 dir = new Vector2(-1, 1);
+        rb.AddForce(dir * damagedDash * Time.deltaTime, ForceMode2D.Impulse);
 
         StartCoroutine(InvincibleTime());
 
-        SetState(AirState.Instance);
 
-        rb.velocity = Vector2.zero;
         if (GameManager.Instance.difficulty != "easy")
         {
             CurHpCount--;
             hp.OnDamaged();
         }
 
-        Vector2 dir = new Vector2(-1, 1);
-        rb.AddForce(dir * damagedDash * Time.deltaTime, ForceMode2D.Impulse);
+        SetState(AirState.Instance);
+
     }
     public void OnDead()
     {
@@ -966,16 +967,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (!isInvincible)
-        {
-            if (collision.CompareTag("Bullet") && !IsSpinning)
-            {
-                anim.Play("SNB_Damaged");
-            }
-            if (collision.CompareTag("DamageTile"))
-                anim.Play("SNB_Damaged");
-        }
-
         if (collision.CompareTag("Finish"))
             isFreeze = true;
 
@@ -985,6 +976,20 @@ public class PlayerController : MonoBehaviour
         }
         if(collision.CompareTag("SavePoint"))
             DataManager.Instance.data.savePos = collision.transform.position;
+
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+        if (!isInvincible)
+        {
+            if (collision.CompareTag("Bullet") && !IsSpinning)
+            {
+                anim.Play("SNB_Damaged");
+            }
+            if (collision.CompareTag("DamageTile"))
+                anim.Play("SNB_Damaged");
+        }
 
     }
     #endregion
