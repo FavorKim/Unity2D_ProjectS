@@ -12,7 +12,6 @@ using UnityEngine.UIElements;
 
 public class GameManager : Singleton<GameManager>
 {
-    bool isFull = true;
     float aimRad;
 
     int recoverMax = 4;
