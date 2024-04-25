@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
     protected float swingCooldown = 4.0f;
     protected float damagedDash = 800.0f;
     protected float swingDashCool { get; set; }
+    [SerializeField] protected float swingMaxSpeed = 200.0f;
+
     float spinSpeed = 30.0f;
     float curSize;
     #endregion
@@ -274,7 +276,6 @@ public class PlayerController : MonoBehaviour
     public class PlayerState : IPlayerState
     {
         #region vars
-        protected static PlayerController player;
         protected float moveForce => player.moveForce;
         protected float jumpForce => player.jumpForce;
         protected float swingForce => player.swingForce;
@@ -283,21 +284,26 @@ public class PlayerController : MonoBehaviour
         protected float climbSpeed => player.climbSpeed;
         protected float rewindDist => player.rewindDist;
         protected float targetGravity => player.targetGravity;
+        protected float spinSpeed => player.spinSpeed;
+        protected float excuteMove => player.excuteMove;
+        protected float dashForce => player.dashForce;
+        protected float swingMaxSpeed => player.swingMaxSpeed;
+        protected float rewindSpeed => player.rewindSpeed;
+
+        protected bool isSkilled = false;
+        
         protected Vector2 moveVal => player.moveVal;
+        protected LayerMask spinLayer => player.spinLayer;
         protected Vector2 climbVal => player.climbVal;
+        
+        protected static PlayerController player;
         protected LineRenderer aimLine => player.aimLine;
         protected LineRenderer hookLine => player.hookLine;
         protected Transform ancPos => player.ancPos;
         protected Rigidbody2D rb => player.rb;
-        protected LayerMask spinLayer => player.spinLayer;
-        protected float spinSpeed => player.spinSpeed;
         protected CapsuleCollider2D col => player.col;
         protected Anchor anchor => player.anchor;
-        protected float dashForce => player.dashForce;
         protected Animator anim => player.anim;
-        protected bool isSkilled = false;
-        protected float excuteMove => player.excuteMove;
-        protected float rewindSpeed => player.rewindSpeed;
         protected SpriteRenderer armSr => player.armSr;
         protected CinemachineVirtualCamera cam => player.cam;
         protected BossManager bM => player.bM;
@@ -521,6 +527,7 @@ public class PlayerController : MonoBehaviour
                 return instance;
             }
         }
+
         public override void Move()
         {
             Vector2 newPos = ancPos.position - player.transform.position;
@@ -792,7 +799,15 @@ public class PlayerController : MonoBehaviour
                 return instance;
             }
         }
-        public override void Move() { base.Move(); armSr.enabled = true; }
+        public override void Move() { base.Move(); armSr.enabled = true;
+            if (rb.velocity.x > swingMaxSpeed)
+                rb.velocity = new Vector2(swingMaxSpeed, rb.velocity.y);
+            else if (rb.velocity.x < -swingMaxSpeed )
+                rb.velocity = new Vector2(swingMaxSpeed * -1.0f, rb.velocity.y);
+            if (rb.velocity.y < -swingMaxSpeed)
+                rb.velocity = new Vector2(rb.velocity.x, swingMaxSpeed * -1.0f);
+
+        }
         public override void Jump() { base.Jump(); }
         public override void Skill()
         {
