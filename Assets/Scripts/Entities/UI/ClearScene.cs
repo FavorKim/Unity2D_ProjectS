@@ -21,7 +21,6 @@ public class ClearScene : MonoBehaviour
                 cleared.DOPlay();
         }
         DataManager.Instance.SoftResetGameData();
-        DataManager.Instance.SaveGameData();
     }
 
     public void OnClear()
