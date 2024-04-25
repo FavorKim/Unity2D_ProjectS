@@ -27,6 +27,7 @@ public class MySceneManager : Singleton<MySceneManager>
 
     public void ChangeScene(string sceneName, float fadeSpeed)
     {
+        DataManager.Instance.SaveGameData();
         PlayerController.isFreeze = true;
         m_sceneName = sceneName;
         m_fadeSpeed = fadeSpeed;
