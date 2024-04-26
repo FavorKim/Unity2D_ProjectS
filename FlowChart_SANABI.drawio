@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-26T07:14:57.461Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="gBsIWHMy4FrD7xTyOuj6" version="24.3.0" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-26T07:18:09.015Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="dXSVsBiztye8-O_Np6Vk" version="24.3.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1195" dy="1784" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -568,6 +568,11 @@
         </mxCell>
         <mxCell id="xOVSz6dbR93FTunpoiB2-201" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xOVSz6dbR93FTunpoiB2-194" target="xOVSz6dbR93FTunpoiB2-200">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xOVSz6dbR93FTunpoiB2-203" value="클리어" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="xOVSz6dbR93FTunpoiB2-201">
+          <mxGeometry x="-0.1727" y="-4" relative="1" as="geometry">
+            <mxPoint x="17" y="-1" as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="xOVSz6dbR93FTunpoiB2-194" value="BossScene" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="370" y="1377" width="120" height="40" as="geometry" />
